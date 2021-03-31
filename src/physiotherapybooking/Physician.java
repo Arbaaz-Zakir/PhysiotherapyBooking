@@ -1,3 +1,5 @@
+package physiotherapybooking;
+
 import java.util.ArrayList;
 
 /*
@@ -24,5 +26,12 @@ public class Physician extends User{
         this.expertise.add(expertise);
     }
     
-    
+    public String getExpertise(){
+        String s = "";
+        for(String physicianExpertise : expertise){
+            s += physicianExpertise + "\n";
+        }
+        
+        return s;
+    }
 }
