@@ -4,19 +4,33 @@
  * and open the template in the editor.
  */
 package physiotherapybooking;
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 /**
  *
  * @author Arbaaz
  */
 public class Physician extends User{
     LocalDateTime[] ConsultationHours;
-    // expertise
+    ArrayList<String> expertise;
     
     public Physician(String fullName, String address, String telephone){
         super(fullName, address, telephone);
         ConsultationHours = new LocalDateTime[10];
-        
+        expertise = new ArrayList();
     }
+    
+    public void addExpertise(String expertise){
+        this.expertise.add(expertise);
+    }
+    
+    public String getAllExpertise(){
+        String s = "";
+        for(String expertise : expertise){
+            s += expertise + "\n";
+        }
+        return s;
+    }
+    
 }
