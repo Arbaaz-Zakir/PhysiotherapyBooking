@@ -22,5 +22,13 @@ public class Room {
         rooms.add(room);
     }
     
+    public String getRooms(){
+        String s = "";
+        for(String room : rooms){
+            s += room + "\n";
+        }
+        return s;
+    }
+    
     
 }

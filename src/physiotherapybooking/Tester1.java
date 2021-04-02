@@ -13,13 +13,13 @@ import java.time.Month;
  */
 public class Tester1 {
     public static void main (String[] args){
-        LocalDateTime booking = LocalDateTime.of(2020, Month.MARCH, 01, 13, 0);
-        System.out.println(booking);
-        
-        LocalDateTime arrive = LocalDateTime.of(2020, Month.MARCH, 01, 13, 29);
-        if(arrive.isAfter(booking) && arrive.isBefore(booking.plusMinutes(30))) {
-            System.out.println("arrived");
-        }
+//        LocalDateTime booking = LocalDateTime.of(2020, Month.MARCH, 01, 13, 0);
+//        System.out.println(booking);
+//        
+//        LocalDateTime arrive = LocalDateTime.of(2020, Month.MARCH, 01, 13, 29);
+//        if(arrive.isAfter(booking) && arrive.isBefore(booking.plusMinutes(30))) {
+//            System.out.println("arrived");
+//        }
             
         
     }
