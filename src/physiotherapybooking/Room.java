@@ -5,13 +5,22 @@
  */
 package physiotherapybooking;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Arbaaz
  */
 public class Room {
+    ArrayList<String> rooms;
     
     public Room(){
-        
+        rooms = new ArrayList();
     }
+    
+    public void addRoom(String room){
+        rooms.add(room);
+    }
+    
+    
 }
