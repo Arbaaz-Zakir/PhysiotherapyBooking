@@ -79,4 +79,8 @@ public class User {
         this.telephone = telephone;
     }
     
+    public String toString(){
+        return userID + " " + fullName + " " + address + " " + telephone; 
+    }
+    
 }

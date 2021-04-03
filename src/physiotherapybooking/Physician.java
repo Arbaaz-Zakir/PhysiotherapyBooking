@@ -25,6 +25,15 @@ public class Physician extends User{
         this.expertise.add(expertise);
     }
     
+    public String getExpertise(String expertise){
+        for(String exp : this.expertise){
+            if(exp.equals(expertise)){
+                return expertise;
+            }
+        }
+        return "No expertise";
+    }
+    
     public String getAllExpertise(){
         String s = "";
         for(String expertise : expertise){
@@ -33,4 +42,19 @@ public class Physician extends User{
         return s;
     }
     
+    public ArrayList getExpertiseList(){
+        return expertise;
+    }
+    
+    public String getConsultationHours(){
+        String s = "Consultation Hours: \n";
+        for(int i = 0; i <= ConsultationHours.length; i++){
+            s += ConsultationHours[i] + "\n";
+        }
+        return s;
+    }
+    
+    public String toString(){
+        return super.toString() + "\n" + getConsultationHours();
+    }
 }
