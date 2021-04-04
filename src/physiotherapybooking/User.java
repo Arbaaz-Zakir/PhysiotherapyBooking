@@ -23,7 +23,7 @@ public class User {
      * @param address
      * @param telephone 
      */
-    public User(String fullName, String address, String telephone){
+    public User(String userID, String fullName, String address, String telephone){
         this.userID = userID;
         this.fullName = fullName;
         this.address = address;

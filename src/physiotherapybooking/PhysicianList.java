@@ -32,4 +32,12 @@ public class PhysicianList {
         }
         return search;
     }
+    
+    public ArrayList getPhysicianList(){
+        return physicianList;
+    }
+    
+    public void addPhysicianToList(Physician physician){
+        physicianList.add(physician);
+    }
 }

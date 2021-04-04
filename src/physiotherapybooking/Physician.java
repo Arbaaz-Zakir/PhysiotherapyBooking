@@ -12,12 +12,12 @@ import java.util.ArrayList;
  * @author Arbaaz
  */
 public class Physician extends User{
-    LocalDateTime[] ConsultationHours;
+    ArrayList<LocalDateTime> ConsultationHours;
     ArrayList<String> expertise;
     
-    public Physician(String fullName, String address, String telephone){
-        super(fullName, address, telephone);
-        ConsultationHours = new LocalDateTime[10];
+    public Physician(String userID, String fullName, String address, String telephone){
+        super(userID, fullName, address, telephone);
+        ConsultationHours = new ArrayList();
         expertise = new ArrayList();
     }
     
@@ -46,15 +46,19 @@ public class Physician extends User{
         return expertise;
     }
     
+    public void setConsultationHours(){
+        
+    }
+    
     public String getConsultationHours(){
         String s = "Consultation Hours: \n";
-        for(int i = 0; i <= ConsultationHours.length; i++){
-            s += ConsultationHours[i] + "\n";
+        for(LocalDateTime hours : ConsultationHours){
+            s += ConsultationHours + "\n";
         }
         return s;
     }
     
     public String toString(){
-        return super.toString() + "\n" + getConsultationHours();
+        return super.toString() + "\n" + getConsultationHours() + "\n" + "*************************" + "\n";
     }
 }
