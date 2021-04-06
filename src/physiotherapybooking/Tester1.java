@@ -21,13 +21,16 @@ public class Tester1 {
 //            System.out.println("arrived");
 //        }
             
-        Physician phys1 = new Physician("111", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
-        Physician phys2 = new Physician("222", "bobo marko", "02 downing street", "0456530");
-        PhysicianList listOfPhysician = new PhysicianList();
-        System.out.println(listOfPhysician.getPhysicianList());
-        listOfPhysician.addPhysicianToList(phys1);
-        listOfPhysician.addPhysicianToList(phys2);
-        System.out.println(listOfPhysician.getPhysicianList());
+//        Physician phys1 = new Physician("111", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+//        Physician phys2 = new Physician("222", "bobo marko", "02 downing street", "0456530");
+//        PhysicianList listOfPhysician = new PhysicianList();
+//        System.out.println(listOfPhysician.getPhysicianList());
+//        listOfPhysician.addPhysicianToList(phys1);
+//        listOfPhysician.addPhysicianToList(phys2);
+//        System.out.println(listOfPhysician.getPhysicianList());
+
+          BookingController sys = new BookingController();
+          
         
     }
 }
