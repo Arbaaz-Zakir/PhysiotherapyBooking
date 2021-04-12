@@ -33,11 +33,31 @@ public class PhysicianList {
         return search;
     }
     
+    public String getPhysiciansByName(String name){
+        String search = "";
+        for(Physician phys : physicianList){
+            if(phys.getFullName().equalsIgnoreCase(name)){
+                search += phys.getFullName() + "\n" + phys.getConsultationHours() + "\n\n";
+            }
+        }
+        
+        return search;
+    }
+    
     public ArrayList getPhysicianList(){
         return physicianList;
     }
     
     public void addPhysicianToList(Physician physician){
         physicianList.add(physician);
+    }
+    
+    public boolean physicianExists(String name){
+        for(Physician phys : physicianList){
+            if(phys.getFullName().equals(name)){
+                return true;
+            }
+        }
+        return false;
     }
 }

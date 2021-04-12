@@ -6,6 +6,7 @@
 package physiotherapybooking;
 //import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 /**
  *
@@ -14,6 +15,9 @@ import java.util.ArrayList;
 public class Physician extends User{
     ArrayList<LocalDateTime> ConsultationHours;
     ArrayList<String> expertise;
+    
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    
     
     public Physician(String userID, String fullName, String address, String telephone){
         super(userID, fullName, address, telephone);
@@ -46,14 +50,14 @@ public class Physician extends User{
         return expertise;
     }
     
-    public void setConsultationHours(){
-        
+    public void addConsultationHours(LocalDateTime dateTime){
+        this.ConsultationHours.add(dateTime);
     }
     
     public String getConsultationHours(){
         String s = "Consultation Hours: \n";
         for(LocalDateTime hours : ConsultationHours){
-            s += ConsultationHours + "\n";
+            s += hours.format(formatter) + "\n";
         }
         return s;
     }
