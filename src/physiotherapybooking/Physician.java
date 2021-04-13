@@ -8,12 +8,15 @@ package physiotherapybooking;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 /**
  *
  * @author Arbaaz
  */
 public class Physician extends User{
-    ArrayList<LocalDateTime> ConsultationHours;
+    //ArrayList<LocalDateTime> ConsultationHours;
+    HashMap<Integer, LocalDateTime> ConsultationHours;
+    
     ArrayList<String> expertise;
     
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -21,7 +24,7 @@ public class Physician extends User{
     
     public Physician(String userID, String fullName, String address, String telephone){
         super(userID, fullName, address, telephone);
-        ConsultationHours = new ArrayList();
+        ConsultationHours = new HashMap<Integer, LocalDateTime>();
         expertise = new ArrayList();
     }
     
@@ -51,15 +54,21 @@ public class Physician extends User{
     }
     
     public void addConsultationHours(LocalDateTime dateTime){
-        this.ConsultationHours.add(dateTime);
+        this.ConsultationHours.put((ConsultationHours.size()+1),dateTime);
     }
     
     public String getConsultationHours(){
         String s = "Consultation Hours: \n";
-        for(LocalDateTime hours : ConsultationHours){
-            s += hours.format(formatter) + "\n";
+        for(LocalDateTime hours : ConsultationHours.values()){
+            for(int number : ConsultationHours.keySet()){
+                s += number + " : "+ hours.format(formatter) + "\n";
+            }
         }
         return s;
+    }
+    
+    public LocalDateTime selectTime(int time){
+        return ConsultationHours.get(time);
     }
     
     public String toString(){
