@@ -30,7 +30,7 @@ public class BookingController {
         xx.addConsultationHours(LocalDateTime.of(2020, Month.MARCH, 01, 13, 29));
         
         listOfPhysician.addPhysicianToList(xx);
-        listOfPatients.addUserToList(p1);
+        listOfPatients.addPatient(p1);
         
         //boolean sysActive = true;
         System.out.println("Welcome to The Physiotherapy & Sports Injury Centre (PSIC) Booking system");
@@ -50,7 +50,7 @@ public class BookingController {
                 usersInput = input.nextLine();
             }
             while(usersInput.isEmpty());
-            if(listOfPatients.userExists(usersInput)){
+            if(listOfPatients.patientExists(usersInput)){
                 sysUser = listOfPatients.getPatientByID(usersInput);
                 System.out.println("Welcome " + sysUser.getFullName());
                 usersInput= "";
@@ -116,7 +116,7 @@ public class BookingController {
 //            if(usersInput.equalsIgnoreCase("y")){
 //                    System.out.println("please enter user ID");
 //                    usersInput = input.nextLine();
-//                    if(listOfPatients.userExists(usersInput)){
+//                    if(listOfPatients.patientExists(usersInput)){
 //                        sysUser = listOfPatients.getUserByID(usersInput);
 //                        System.out.println("Welcome " + sysUser.getFullName());
 //                        

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Arbaaz
  */
 public class PatientList {
-    private ArrayList<User> patientList;
+    private ArrayList<Patient> patientList;
     
     public PatientList(){
         patientList = new ArrayList(); 
@@ -28,7 +28,7 @@ public class PatientList {
         return null;
     }
     
-    public String getUserByName(String patientName){
+    public String getPatientByName(String patientName){
         String s = "";
         for(User users : patientList){
             if (users.getFullName().equals(patientName)){
@@ -38,7 +38,7 @@ public class PatientList {
         return s;
     }
     
-    public boolean userExists(String patientID){
+    public boolean patientExists(String patientID){
         for(User users : patientList){
             if(users.getUserID().equals(patientID)){
                 return true;
@@ -47,11 +47,11 @@ public class PatientList {
         return false;
     }
     
-    public ArrayList getUserList(){
+    public ArrayList getPatientList(){
         return patientList;
     }
     
-    public void addUserToList(Patient patient){
+    public void addPatient(Patient patient){
         patientList.add(patient);
     }
 }
