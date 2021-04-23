@@ -79,6 +79,7 @@ public class BookingController {
                         
                         if(option.equalsIgnoreCase("y")){
                             //select time
+                            //Physician phys = new Physician(listOfPhysician.getAPhysicianByName(usersInput)); 
                             // ask for year month time
                             option = "";
                             do{
@@ -87,8 +88,9 @@ public class BookingController {
                             }
                             while(option.isEmpty());
                             int selectedDate = Integer.parseInt(option);
-                            //LocalDateTime selected = listOfPhysician.getPhysiciansByName(usersInput).selectTime(option);
-                            //Treatment treatment = new Treatment("Treatment name",room, selected,listOfPhysician.getPhysiciansByName(usersInput));
+                            
+                            LocalDateTime selected = (listOfPhysician.getAPhysicianByName(usersInput).selectTime(selectedDate));
+                            //Treatment treatment = new Treatment("Treatment name",room, selected, listOfPhysician.getPhysiciansByName(usersInput));
                         }
                     }
                 }
@@ -134,5 +136,8 @@ public class BookingController {
 //                }
 //            }
         System.out.println("THANK YOU FOR USING THE SYSTEM");
+    }
+    private void AppointmentTreatmentReport(){
+        
     }
 }

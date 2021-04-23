@@ -44,6 +44,15 @@ public class PhysicianList {
         return search;
     }
     
+    public Physician getAPhysicianByName(String name){
+        for(Physician phys : physicianList){
+            if(phys.getFullName().equalsIgnoreCase(name)){
+                return phys;
+            }
+        }
+        return null;
+    }
+    
     public ArrayList getPhysicianList(){
         return physicianList;
     }

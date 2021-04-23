@@ -12,23 +12,11 @@ import java.util.ArrayList;
  * @author Arbaaz
  */
 public class Room {
-    ArrayList<String> rooms;
+    String room;
+    boolean isAvailable;
     
-    public Room(){
-        rooms = new ArrayList();
+    public Room(String room){
+        this.room = room;
     }
-    
-    public void addRoom(String room){
-        rooms.add(room);
-    }
-    
-    public String getRooms(){
-        String s = "";
-        for(String room : rooms){
-            s += room + "\n";
-        }
-        return s;
-    }
-    
     
 }
