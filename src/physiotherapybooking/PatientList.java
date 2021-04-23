@@ -11,36 +11,36 @@ import java.util.ArrayList;
  *
  * @author Arbaaz
  */
-public class UserList {
-    private ArrayList<User> userList;
+public class PatientList {
+    private ArrayList<User> patientList;
     
-    public UserList(){
-        userList = new ArrayList(); 
+    public PatientList(){
+        patientList = new ArrayList(); 
     }
     
-    public User getUserByID(String userID){
+    public User getPatientByID(String patientID){
         String s = "";
-        for(User user : userList){
-            if (user.getUserID().equals(userID)){
+        for(User user : patientList){
+            if (user.getUserID().equals(patientID)){
                 return user;
             }
         }
         return null;
     }
     
-    public String getUserByName(String userName){
+    public String getUserByName(String patientName){
         String s = "";
-        for(User users : userList){
-            if (users.getFullName().equals(userName)){
+        for(User users : patientList){
+            if (users.getFullName().equals(patientName)){
                 s += users.getUserID()+ "  " + users.getFullName() + "\n";
             }
         }
         return s;
     }
     
-    public boolean userExists(String userID){
-        for(User users : userList){
-            if(users.getUserID().equals(userID)){
+    public boolean userExists(String patientID){
+        for(User users : patientList){
+            if(users.getUserID().equals(patientID)){
                 return true;
             }
         }
@@ -48,10 +48,10 @@ public class UserList {
     }
     
     public ArrayList getUserList(){
-        return userList;
+        return patientList;
     }
     
-    public void addUserToList(User user){
-        userList.add(user);
+    public void addUserToList(Patient patient){
+        patientList.add(patient);
     }
 }

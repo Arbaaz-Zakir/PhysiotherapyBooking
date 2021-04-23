@@ -18,9 +18,9 @@ public class BookingController {
     private User sysUser;
     
     private PhysicianList listOfPhysician = new PhysicianList();
-    private UserList listOfUsers = new UserList();
+    private PatientList listOfPatients = new PatientList();
     
-    User u1 = new User("111", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+    Patient p1 = new Patient("111", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
     Physician xx = new Physician("222", "bob", "26 dorset park", "5476468");
     
     public BookingController(){
@@ -30,7 +30,7 @@ public class BookingController {
         xx.addConsultationHours(LocalDateTime.of(2020, Month.MARCH, 01, 13, 29));
         
         listOfPhysician.addPhysicianToList(xx);
-        listOfUsers.addUserToList(u1);
+        listOfPatients.addUserToList(p1);
         
         //boolean sysActive = true;
         System.out.println("Welcome to The Physiotherapy & Sports Injury Centre (PSIC) Booking system");
@@ -50,8 +50,8 @@ public class BookingController {
                 usersInput = input.nextLine();
             }
             while(usersInput.isEmpty());
-            if(listOfUsers.userExists(usersInput)){
-                sysUser = listOfUsers.getUserByID(usersInput);
+            if(listOfPatients.userExists(usersInput)){
+                sysUser = listOfPatients.getPatientByID(usersInput);
                 System.out.println("Welcome " + sysUser.getFullName());
                 usersInput= "";
                 option = "";
@@ -116,8 +116,8 @@ public class BookingController {
 //            if(usersInput.equalsIgnoreCase("y")){
 //                    System.out.println("please enter user ID");
 //                    usersInput = input.nextLine();
-//                    if(listOfUsers.userExists(usersInput)){
-//                        sysUser = listOfUsers.getUserByID(usersInput);
+//                    if(listOfPatients.userExists(usersInput)){
+//                        sysUser = listOfPatients.getUserByID(usersInput);
 //                        System.out.println("Welcome " + sysUser.getFullName());
 //                        
 //                        // add here functionality of what one can do when logged in
