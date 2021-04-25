@@ -14,17 +14,18 @@ import java.util.HashMap;
  * @author Arbaaz
  */
 public class Physician extends User{
-    //ArrayList<LocalDateTime> ConsultationHours;
-    HashMap<Integer, LocalDateTime> ConsultationHours;
+    //ArrayList<LocalDateTime> appointmentHours;
+    HashMap<Integer, LocalDateTime> appointmentHours;
     
     ArrayList<String> expertise;
     
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     
     
+    
     public Physician(String userID, String fullName, String address, String telephone){
         super(userID, fullName, address, telephone);
-        ConsultationHours = new HashMap<Integer, LocalDateTime>();
+        appointmentHours = new HashMap<Integer, LocalDateTime>();
         expertise = new ArrayList();
     }
     
@@ -54,13 +55,13 @@ public class Physician extends User{
     }
     
     public void addConsultationHours(LocalDateTime dateTime){
-        this.ConsultationHours.put((ConsultationHours.size()+1),dateTime);
+        this.appointmentHours.put((appointmentHours.size()+1),dateTime);
     }
     
-    public String getConsultationHours(){
-        String s = "Consultation Hours: \n";
-        for(LocalDateTime hours : ConsultationHours.values()){
-            for(int number : ConsultationHours.keySet()){
+    public String getAppointmentHours(){
+        String s = "Appointment Hours: \n";
+        for(LocalDateTime hours : appointmentHours.values()){
+            for(int number : appointmentHours.keySet()){
                 s += number + " : "+ hours.format(formatter) + "\n";
             }
         }
@@ -68,10 +69,10 @@ public class Physician extends User{
     }
     
     public LocalDateTime selectTime(int time){
-        return ConsultationHours.get(time);
+        return appointmentHours.get(time);
     }
     
     public String toString(){
-        return super.toString() + "\n" + getConsultationHours() + "\n" + "*************************" + "\n";
+        return super.toString() + "\n" + getAppointmentHours() + "\n" + "*************************" + "\n";
     }
 }

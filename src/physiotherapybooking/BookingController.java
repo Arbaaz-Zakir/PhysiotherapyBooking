@@ -20,18 +20,10 @@ public class BookingController {
     private PhysicianList listOfPhysician = new PhysicianList();
     private PatientList listOfPatients = new PatientList();
     
-    Patient p1 = new Patient("111", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
-    Physician xx = new Physician("222", "bob", "26 dorset park", "5476468");
+
     
-    public BookingController(){
-        xx.addExpertise("accupunture");
-        
-        //LocalDateTime.of(2020, Month.MARCH, 01, 13, 29)
-        xx.addConsultationHours(LocalDateTime.of(2020, Month.MARCH, 01, 13, 29));
-        
-        listOfPhysician.addPhysicianToList(xx);
-        listOfPatients.addPatient(p1);
-        
+    
+    public BookingController(){   
         //boolean sysActive = true;
         System.out.println("Welcome to The Physiotherapy & Sports Injury Centre (PSIC) Booking system");
         String option = "";

@@ -16,11 +16,14 @@ public class PatientList {
     
     public PatientList(){
         patientList = new ArrayList(); 
+        
+        Patient p1 = new Patient("111", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+        patientList.add(p1);
     }
     
-    public User getPatientByID(String patientID){
+    public Patient getPatientByID(String patientID){
         String s = "";
-        for(User user : patientList){
+        for(Patient user : patientList){
             if (user.getUserID().equals(patientID)){
                 return user;
             }

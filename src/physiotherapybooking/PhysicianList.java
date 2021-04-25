@@ -5,6 +5,8 @@
  */
 package physiotherapybooking;
 
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +18,11 @@ public class PhysicianList {
     
     public PhysicianList(){
         physicianList = new ArrayList(); 
+        
+        Physician xx = new Physician("222", "bob", "26 dorset park", "5476468");
+        physicianList.add(xx); 
+        xx.addExpertise("accupunture");
+        xx.addConsultationHours(LocalDateTime.of(2020, Month.MARCH, 01, 13, 29));
     }
     
     public ArrayList<Physician> getPhysiciansByExpertise(String physicianExpertise){
@@ -37,7 +44,7 @@ public class PhysicianList {
         String search = "";
         for(Physician phys : physicianList){
             if(phys.getFullName().equalsIgnoreCase(name)){
-                search += phys.getFullName() + "\n" + phys.getConsultationHours() + "\n\n";
+                search += phys.getFullName() + "\n" + phys.getAppointmentHours() + "\n\n";
             }
         }
         
