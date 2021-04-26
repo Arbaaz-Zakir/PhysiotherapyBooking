@@ -14,12 +14,14 @@ public class Treatment {
     private Room room;
     private LocalDateTime appointmentTime;
     private Physician physician;
+    private Patient patient;
     
-    public Treatment(String name, Room room, LocalDateTime appointmentTime, Physician physician){
+    public Treatment(String name, Room room, LocalDateTime appointmentTime, Physician physician, Patient patient){
         this.treatmentName = name;
         this.room = room;
         this.appointmentTime = appointmentTime;
         this.physician = physician;
+        this.patient = patient;
     }
 
     /**
@@ -77,6 +79,22 @@ public class Treatment {
     public void setPhysician(Physician physician) {
         this.physician = physician;
     }
-    
-    
+
+    public String toString(){
+        String s = "";
+        s+= "Physician: " + this.getPhysician().getFullName() + "\n" +
+                "Treatment: " + this.getTreatmentName() + "\n" +
+                "Patient: " + this.getPatient().getFullName() + "\n" + 
+                "Time: " + this.getAppointmentTime() + "\n" + 
+                "Room: " + this.getRoom().getRoom();
+        return s;
+    }
+
+    /**
+     * @return the patient
+     */
+    public Patient getPatient() {
+        return patient;
+    }
+
 }

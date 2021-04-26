@@ -15,11 +15,11 @@ import java.util.HashMap;
  */
 public class Physician extends User{
     //ArrayList<LocalDateTime> appointmentHours;
-    HashMap<Integer, LocalDateTime> appointmentHours;
+    private HashMap<Integer, LocalDateTime> appointmentHours;
     
-    ArrayList<String> expertise;
+    private ArrayList<String> expertise;
     
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     
     
     
@@ -54,7 +54,7 @@ public class Physician extends User{
         return expertise;
     }
     
-    public void addConsultationHours(LocalDateTime dateTime){
+    public void addAppointmentHours(LocalDateTime dateTime){
         this.appointmentHours.put((appointmentHours.size()+1),dateTime);
     }
     
@@ -69,7 +69,12 @@ public class Physician extends User{
     }
     
     public LocalDateTime selectTime(int time){
-        return appointmentHours.get(time);
+        if(this.appointmentHours.containsKey(time)){
+            return appointmentHours.get(time);
+        }
+        else{
+            return null;
+        }
     }
     
     public String toString(){

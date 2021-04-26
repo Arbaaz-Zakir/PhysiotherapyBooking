@@ -19,10 +19,10 @@ public class Booking {
          CANCELLED
      }
      
-     Treatment treatment;
-     Status status;
+     private Treatment treatment;
+     private Status status;
      
-     public Booking(Treatment treament){
+     public Booking(Treatment treatment){
          this.treatment = treatment;
          status = status.BOOKED;
      }
@@ -37,6 +37,22 @@ public class Booking {
      
      public String toString(){
          String string = "";
+         string += this.getTreatment().toString() + 
+                 "\nStatus: " + getStatus();
          return string;
      }
+
+    /**
+     * @return the treatment
+     */
+    public Treatment getTreatment() {
+        return treatment;
+    }
+
+    /**
+     * @param treatment the treatment to set
+     */
+    public void setTreatment(Treatment treatment) {
+        this.treatment = treatment;
+    }
 }
