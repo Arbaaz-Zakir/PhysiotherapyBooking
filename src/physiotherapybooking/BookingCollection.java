@@ -11,17 +11,28 @@ import java.util.ArrayList;
  *
  * @author Arbaaz
  */
-public class Report {
-    private ArrayList <Booking> report1;
+public class BookingCollection {
+    private ArrayList <Booking> bookings;
     //private ArrayList <Booking> report2;
     
-    public Report(){
-        report1 = new ArrayList();
+    public BookingCollection(){
+        bookings = new ArrayList();
         //report2 = new ArrayList();
     }
     
-    public void addReport1(Booking booking){
-        this.report1.add(booking);
+    public String addBooking(Booking booking){
+        for(Booking books : bookings){
+            if(!bookings.isEmpty()){
+                if(books.getTreatment().getRoom().getRoom().equals(booking.getTreatment().getRoom().getRoom())
+                        && books.getTreatment().getAppointmentTime().equals(booking.getTreatment().getAppointmentTime())){
+                    return("Room Booked at selected time, this booking is unavailable");
+                }
+            }
+        }
+        this.bookings.add(booking);
+        return "Booking complete";
+            
+   
     }
     
     
@@ -32,7 +43,7 @@ public class Report {
     
     public String printReport1(){
         String report = "";
-        for(Booking book : report1){
+        for(Booking book : bookings){
             report += border2() + "\n" +
             book.getTreatment().toString() + "\n" +
             border2();
@@ -42,7 +53,7 @@ public class Report {
     
     public String printReport2(){
         String report = "";
-        for(Booking book : report1){
+        for(Booking book : bookings){
             report += border2() + "\n" +
             book.toString() + "\n" +
             border2();

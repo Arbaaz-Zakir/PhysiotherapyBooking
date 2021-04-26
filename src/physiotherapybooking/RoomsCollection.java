@@ -12,19 +12,29 @@ import java.util.ArrayList;
  * @author Arbaaz
  */
 public class RoomsCollection {
-    ArrayList<String> rooms;
+    ArrayList<Room> rooms;
     
     public RoomsCollection(){
         rooms = new ArrayList();
+        
+        Room medicalSuiteA = new Room("Medical Suite A");
+        Room medicalSuiteB = new Room("Medical Suite B");
+        Room medicalSuiteC = new Room("Medical Suite C");
+        Room medicalSuiteD = new Room("Medical Suite D");
+        
+        rooms.add(medicalSuiteA);
+        rooms.add(medicalSuiteB);
+        rooms.add(medicalSuiteC);
+        rooms.add(medicalSuiteD);
     }
     
-    public void addRoom(String room){
+    public void addRoom(Room room){
         rooms.add(room);
     }    
     
     public String getRooms(){
         String s = "";
-        for(String room : rooms){
+        for(Room room : rooms){
             s += room + "\n";
         }
         return s;

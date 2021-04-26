@@ -72,27 +72,33 @@ public class Tester1 {
           Room room = new Room("medical suite 1");
           Room room2 = new Room("medical suite 2");
           Physician p1 = new Physician("111","mark", "address1", "012" );
+          Physician p2 = new Physician("112","carol", "address2", "132" );
           p1.addExpertise("accupunture");
+          p2.addExpertise("accupunture");
           p1.addAppointmentHours(LocalDateTime.of(2020, Month.MARCH, 01, 13, 29));
+          p2.addAppointmentHours(LocalDateTime.of(2020, Month.MARCH, 01, 14, 29));
+          
           Patient a1 = new Patient("211","bob", "address2", "02312" );
           Patient a2 = new Patient("212","nina", "address3", "3312" );
           Patient a3 = new Patient("213","andy", "address4", "4312" );
           Patient a4 = new Patient("214","joe", "address25", "64312" );
+          
           LocalDateTime pt = p1.selectTime(1);
           Treatment t1 = new Treatment("accupunture", room, pt, p1, a1);
           Treatment t2 = new Treatment("accupunture", room, pt, p1, a2);
           Treatment t3 = new Treatment("accupunture", room2, pt, p1, a3);
+          
           Booking book = new Booking(t1);
           Booking book2 = new Booking(t2);
           Booking book3 = new Booking(t3);
           
-          Report bookings = new  Report();
-          bookings.addReport1(book);
-          bookings.addReport1(book2);
-          bookings.addReport1(book3);
+          BookingCollection bookings = new  BookingCollection();
+          System.out.println(bookings.addBooking(book));
+          System.out.println(bookings.addBooking(book2));
+          System.out.println(bookings.addBooking(book3));
           
           //System.out.println(book2.toString());
           //System.out.println(bookings.printReport1());
-          System.out.println(bookings.printReport2());
+          //System.out.println(bookings.printReport2());
     }
 }
