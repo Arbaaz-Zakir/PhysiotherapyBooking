@@ -25,7 +25,7 @@ public class BookingCollection {
             if(!bookings.isEmpty()){
                 if(books.getTreatment().getRoom().getRoom().equals(booking.getTreatment().getRoom().getRoom())
                         && books.getTreatment().getAppointmentTime().equals(booking.getTreatment().getAppointmentTime())){
-                    return("Room Booked at selected time, this booking is unavailable");
+                    return("Room Booked at the selected time is unavailabe");
                 }
             }
         }
