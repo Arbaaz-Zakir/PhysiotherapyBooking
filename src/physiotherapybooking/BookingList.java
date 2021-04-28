@@ -11,13 +11,14 @@ import java.util.ArrayList;
  *
  * @author Arbaaz
  */
-public class BookingCollection {
+public class BookingList {
     private ArrayList <Booking> bookings;
     //private ArrayList <Booking> report2;
     
-    public BookingCollection(){
+    public BookingList(){
         bookings = new ArrayList();
         //report2 = new ArrayList();
+        
     }
     
     public String addBooking(Booking booking){

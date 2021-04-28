@@ -11,10 +11,10 @@ import java.util.ArrayList;
  *
  * @author Arbaaz
  */
-public class RoomsCollection {
+public class RoomsList {
     ArrayList<Room> rooms;
     
-    public RoomsCollection(){
+    public RoomsList(){
         rooms = new ArrayList();
         
         Room medicalSuiteA = new Room("Medical Suite A");
@@ -32,11 +32,19 @@ public class RoomsCollection {
         rooms.add(room);
     }    
     
-    public String getRooms(){
-        String s = "";
-        for(Room room : rooms){
-            s += room + "\n";
-        }
-        return s;
+//    public String getRooms(){
+//        String s = "";
+//        for(Room room : rooms){
+//            s += room + "\n";
+//        }
+//        return s;
+//    }
+    public Room getRoom(int element){
+        return rooms.get(element);
+        
+    }
+    
+    public int getSize(){
+        return rooms.size();
     }
 }
