@@ -9,7 +9,7 @@ package physiotherapybooking;
  *
  * @author Arbaaz
  */
-public class Patient extends User{
+public class Patient extends Personnel{
     
     public Patient(String userID, String fullName, String address, String telephone){
         super(userID, fullName, address, telephone);

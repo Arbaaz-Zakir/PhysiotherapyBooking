@@ -44,6 +44,10 @@ public class RoomsList {
         
     }
     
+    public ArrayList getRoomList(){
+        return rooms;
+    }
+    
     public int getSize(){
         return rooms.size();
     }

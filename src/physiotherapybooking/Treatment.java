@@ -12,11 +12,11 @@ import java.time.LocalDateTime;
 public class Treatment {
     private String treatmentName;
     private Room room;
-    private LocalDateTime appointmentTime;
+    private String appointmentTime;
     private Physician physician;
     private Patient patient;
     
-    public Treatment(String name, Room room, LocalDateTime appointmentTime, Physician physician, Patient patient){
+    public Treatment(String name, Room room, String appointmentTime, Physician physician, Patient patient){
         this.treatmentName = name;
         this.room = room;
         this.appointmentTime = appointmentTime;
@@ -55,14 +55,14 @@ public class Treatment {
     /**
      * @return the appointmentTime
      */
-    public LocalDateTime getAppointmentTime() {
+    public String getAppointmentTime() {
         return appointmentTime;
     }
 
     /**
      * @param appointmentTime the appointmentTime to set
      */
-    public void setAppointmentTime(LocalDateTime appointmentTime) {
+    public void setAppointmentTime(String appointmentTime) {
         this.appointmentTime = appointmentTime;
     }
 

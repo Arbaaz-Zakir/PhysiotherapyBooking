@@ -14,15 +14,12 @@ import java.util.ArrayList;
  * @author Arbaaz
  */
 public class PhysicianList {
-    ArrayList<Physician> physicianList;
+    private ArrayList<Physician> physicianList;
     
     public PhysicianList(){
         physicianList = new ArrayList(); 
+        loadData();
         
-        Physician xx = new Physician("222", "bob", "26 dorset park", "5476468");
-        physicianList.add(xx); 
-        xx.addExpertise("accupunture");
-        xx.addAppointmentHours(LocalDateTime.of(2020, Month.MARCH, 01, 13, 29));
     }
     
     public ArrayList<Physician> getPhysiciansByExpertise(String physicianExpertise){
@@ -75,5 +72,59 @@ public class PhysicianList {
             }
         }
         return false;
+    }
+    
+    private void loadData(){
+        Physician phys1 = new Physician("001", "bob", "26 dorset park", "5476468");
+        physicianList.add(phys1); 
+        phys1.addExpertise("Physiotherapy");
+        phys1.addAppointmentHours(Timetable.ONEOCLOCK);
+        
+        Physician phys2 = new Physician("002", "mike", "26 dorset park", "5476468");
+        physicianList.add(phys2); 
+        phys2.addExpertise("Osteopathy");
+        phys2.addAppointmentHours(Timetable.TWOOCLOCK);
+        
+        Physician phys3 = new Physician("003", "john", "26 dorset park", "5476468");
+        physicianList.add(phys3); 
+        phys3.addExpertise("Rehabilitation");
+        phys3.addAppointmentHours(Timetable.TWOOCLOCK);
+        
+        Physician phys4 = new Physician("004", "drew", "26 dorset park", "5476468");
+        physicianList.add(phys4); 
+        phys4.addExpertise("accupunture");
+        phys4.addAppointmentHours(Timetable.TWOOCLOCK);
+        
+        Physician phys5 = new Physician("005", "stella", "26 dorset park", "5476468");
+        physicianList.add(phys5); 
+        phys5.addExpertise("Physiotherapy");
+        phys5.addAppointmentHours(Timetable.TWOOCLOCK);
+        
+        Physician phys6 = new Physician("006", "tristana", "26 dorset park", "5476468");
+        physicianList.add(phys6); 
+        phys6.addExpertise("Osteopathy");
+        phys6.addAppointmentHours(Timetable.TWOOCLOCK);
+        
+        Physician phys7 = new Physician("007", "ana", "26 dorset park", "5476468");
+        physicianList.add(phys7); 
+        phys7.addExpertise("Rehabilitation");
+        phys7.addAppointmentHours(Timetable.TWOOCLOCK);
+        
+        Physician phys8 = new Physician("008", "mary", "26 dorset park", "5476468");
+        physicianList.add(phys8); 
+        phys8.addExpertise("accupunture");
+        phys8.addAppointmentHours(Timetable.TWOOCLOCK);
+        
+        Physician phys9 = new Physician("009", "carol", "26 dorset park", "5476468");
+        physicianList.add(phys9); 
+        phys9.addExpertise("accupunture");
+        phys9.addExpertise("Rehabilitation");
+        phys9.addAppointmentHours(Timetable.TWOOCLOCK);
+        
+        Physician phys10 = new Physician("010", "damien", "26 dorset park", "5476468");
+        physicianList.add(phys10); 
+        phys10.addExpertise("accupunture");
+        phys10.addExpertise("Physiotherapy");
+        phys10.addAppointmentHours(Timetable.TWOOCLOCK);
     }
 }

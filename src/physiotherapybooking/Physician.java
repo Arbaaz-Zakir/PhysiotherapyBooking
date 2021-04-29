@@ -13,19 +13,19 @@ import java.util.HashMap;
  *
  * @author Arbaaz
  */
-public class Physician extends User{
+public class Physician extends Personnel{
     //ArrayList<LocalDateTime> appointmentHours;
-    private HashMap<Integer, LocalDateTime> appointmentHours;
-    
+    private HashMap<Integer, String> appointmentHours;
+    private String[] consultation;
     private ArrayList<String> expertise;
     
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    //private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     
     
     
     public Physician(String userID, String fullName, String address, String telephone){
         super(userID, fullName, address, telephone);
-        appointmentHours = new HashMap<Integer, LocalDateTime>();
+        appointmentHours = new HashMap<Integer, String>();
         expertise = new ArrayList();
     }
     
@@ -54,21 +54,21 @@ public class Physician extends User{
         return expertise;
     }
     
-    public void addAppointmentHours(LocalDateTime dateTime){
-        this.appointmentHours.put((appointmentHours.size()+1),dateTime);
+    public void addAppointmentHours(String time){
+        this.appointmentHours.put((appointmentHours.size()+1),time);
     }
     
     public String getAppointmentHours(){
         String s = "Appointment Hours: \n";
-        for(LocalDateTime hours : appointmentHours.values()){
+        for(String hours : appointmentHours.values()){
             for(int number : appointmentHours.keySet()){
-                s += number + " : "+ hours.format(formatter) + "\n";
+                s += number + " : "+ hours + "\n";
             }
         }
         return s;
     }
     
-    public LocalDateTime selectTime(int time){
+    public String getTime(int time){
         if(this.appointmentHours.containsKey(time)){
             return appointmentHours.get(time);
         }

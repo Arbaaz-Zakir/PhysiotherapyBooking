@@ -7,6 +7,7 @@ package physiotherapybooking;
 
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -34,7 +35,7 @@ public class BookingController {
         //option = sc1.nextInt();
         do {
             System.out.println("=========================================================================");
-            System.out.println("Enter: ( 0 )to exit\nEnter: ( 1 ) to login\nEnter: ( 2 ) Sign up\nEnter: ( 3 ) Continue as Visitor");
+            System.out.println("Enter: ( 0 )to exit\nEnter: ( 1 ) to login\nEnter: ( 2 ) Sign up\nEnter: ( 3 ) Continue as Visitor\nEnter: ( 4 ) to generate report 1\nEnter: ( 5 ) to generate report 2");
 
             option = sc1.nextInt();
             switch (option) {
@@ -52,6 +53,11 @@ public class BookingController {
                 case 3:
                     break;
 
+                case 4:
+                    System.out.println(bookingList.printReport1());
+                    break;
+                case 5:
+                    System.out.println(bookingList.printReport2());
             }
         } while (option != 0);
     }
@@ -123,7 +129,7 @@ public class BookingController {
                                 //usersInput = "";
                                 Physician phys = listOfPhysician.getAPhysicianByName(enteredName);
                                 System.out.println();
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
                                 do {
                                     System.out.println("Enter a treatment");
                                     System.out.println(phys.getAllExpertise());
@@ -139,22 +145,25 @@ public class BookingController {
                                     usersInput = input.nextLine();
                                 } while (usersInput.isEmpty());
                                 int selectedDate = Integer.parseInt(usersInput);
-
-                                LocalDateTime selected = (phys.selectTime(selectedDate));
-
-                                first:
-                                for (int i = 0; i <= listOfRooms.getSize(); i++) {
-                                    Room room = listOfRooms.getRoom(i);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                String selected = (phys.getTime(selectedDate));
+                                ArrayList<Room> ro = new ArrayList();
+                                ro = listOfRooms.getRoomList();
+                                String result;
+                                for(Room room : ro){
                                     Treatment tr = new Treatment(treatment, room, selected, phys, sysUser);
-
                                     Booking book = new Booking(tr);
-                                    String mesg = bookingList.addBooking(book);
-                                    if (mesg.equalsIgnoreCase("Booking complete")) {
-                                        System.out.println(mesg);
-                                        break first;
-                                    } else if (i == listOfRooms.getSize()) {
-                                        System.out.println(mesg);
-                                        break first;
+                                    result = bookingList.addBooking(book);
+                                    if(result.equalsIgnoreCase("Booking complete")){
+                                        System.out.println(result);
+                                        break;
+                                    }
+                                    else if(result.equalsIgnoreCase("You already have a booking at this time")){
+                                        System.out.println(result);
+                                        break;
+                                    }
+                                    else{
+                                        System.out.println(room.getRoom() + " : " +result + " BOOKING FAILED");
                                     }
                                 }
 
@@ -174,4 +183,38 @@ public class BookingController {
         //return option = -1;
         sysUser = null;
     }
+
+    private void visitor() {
+        String enteredName;
+        String usersInput;
+        do {
+            System.out.println("Enter a physicians name: ");
+            enteredName = input.nextLine();
+        } while (enteredName.isEmpty());
+
+        if (listOfPhysician.physicianExists(enteredName)) {
+            System.out.println(listOfPhysician.getAPhysicianByName(enteredName));
+            do {
+                System.out.println("Would you like to make a visitors appointment? (Y/N)");
+                usersInput = input.nextLine();
+            } while (usersInput.isEmpty());
+
+            if (usersInput.equalsIgnoreCase("y")) {
+                //usersInput = "";
+                Physician phys = listOfPhysician.getAPhysicianByName(enteredName);
+                System.out.println();
+
+                usersInput = "";
+
+                do {
+                    System.out.println("selct a date");
+                    System.out.println(phys.getAppointmentHours());
+                    usersInput = input.nextLine();
+                } while (usersInput.isEmpty());
+                int selectedDate = Integer.parseInt(usersInput);
+
+            }
+        }
+    }
+
 }

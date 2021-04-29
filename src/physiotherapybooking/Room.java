@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Room {
     private String room;
-    private boolean availability;
+    //private boolean availability;
     
     public Room(String room){
         this.room = room;
@@ -22,16 +22,16 @@ public class Room {
     /**
      * @return the availability
      */
-    public boolean isAvailable() {
-        return availability;
-    }
+//    public boolean isAvailable() {
+//        return availability;
+//    }
 
     /**
      * @param isAvailable the availability to set
      */
-    public void setIsAvailable(boolean isAvailable) {
-        this.availability = isAvailable;
-    }
+//    public void setIsAvailable(boolean isAvailable) {
+//        this.availability = isAvailable;
+//    }
 
     /**
      * @return the room

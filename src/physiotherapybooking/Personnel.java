@@ -10,7 +10,7 @@ package physiotherapybooking;
  *
  * @author Arbaaz
  */
-public class User {
+public class Personnel {
     private String userID; // need to make it self increment whenever new user to keep unique
     private String fullName;
     private String address;
@@ -23,7 +23,7 @@ public class User {
      * @param address
      * @param telephone 
      */
-    public User(String userID, String fullName, String address, String telephone){
+    public Personnel(String userID, String fullName, String address, String telephone){
         this.userID = userID;
         this.fullName = fullName;
         this.address = address;
