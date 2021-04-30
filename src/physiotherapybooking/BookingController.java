@@ -181,7 +181,8 @@ public class BookingController {
                         break;
 
                     case 2:
-                        logOption = -1;
+                        int statusOption = -1;
+                        //logOption = -1;
                         //System.out.println("Enter: ( 0 ) Go Back\nEnter: ( 1 ) Attend a Booking\nEnter: ( 2 ) Cancel a Booking");
                         // view my bookings -> change/cancel bookings
                         do {
@@ -196,9 +197,10 @@ public class BookingController {
                             }
                             System.out.println(books);
                             System.out.println("Enter: ( 0 ) Go Back\nEnter: ( 1 ) Attend a Booking\nEnter: ( 2 ) Cancel a Booking\nEnter: ( 3 ) change a Booking");
-
-                            logOption = input.nextInt();
-                            if (logOption == 1) {
+                            
+                            statusOption = input.nextInt();
+                            
+                            if (statusOption == 1) {
                                 String s = "";
                                 if (myBookings.size() == 0) {
                                     System.out.println("No Bookings found");
@@ -212,8 +214,8 @@ public class BookingController {
                                     selectedBooking = input.nextInt();
                                     System.out.println(bookingList.updateBookingAttend(myBookings.get(selectedBooking)));
                                 }
-                                logOption = -1;
-                            } else if (logOption == 2) {
+                                statusOption = -1;
+                            } else if (statusOption == 2) {
                                 String s = "";
                                 if (myBookings.size() == 0) {
                                     System.out.println("No Bookings Found");
@@ -229,8 +231,8 @@ public class BookingController {
 
                                 }
 
-                                logOption = -1;
-                            } else if (logOption == 3) {
+                                statusOption = -1;
+                            } else if (statusOption == 3) {
                                 String s = "";
                                 if (myBookings.size() == 0) {
                                     System.out.println("No Bookings Found");
@@ -262,7 +264,7 @@ public class BookingController {
                             }
                             //logOption = -1;
 
-                        } while (logOption != 0);
+                        } while (statusOption != 0);
                         break;
                 }
             } while (logOption != 0);
