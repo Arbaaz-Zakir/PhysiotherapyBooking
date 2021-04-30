@@ -156,10 +156,10 @@ public class BookingList {
      */
     public String printReport2(PatientList pl) {
         String report = "";
-        ArrayList <Patient>list = pl.getPatientList();
+        ArrayList<Patient> list = pl.getPatientList();
         for (Patient patient : list) {
             for (Booking book : bookings) {
-                if(patient.getUserID().equalsIgnoreCase(book.getTreatment().getPatient().getUserID())){
+                if (patient.getUserID().equalsIgnoreCase(book.getTreatment().getPatient().getUserID())) {
                     report += border() + "\n"
                             + book.toString() + "\n"
                             + border();
@@ -178,23 +178,84 @@ public class BookingList {
         return ("\n===================================\n");
     }
 
-    public void initBookingsData(Timetable time) {
-        loadData(time);
+    public void initBookingsData(Timetable time, PhysicianList phyList, RoomsList rooms, PatientList pat) {
+        loadData(time, phyList, rooms, pat);
     }
 
     /**
      * loads data of bookings
      */
-    private void loadData(Timetable tm) {
+    private void loadData(Timetable tm, PhysicianList phyList, RoomsList rooms, PatientList patient) {
         //String name, Room room, String appointmentTime, Physician physician, Patient patient
+//        ArrayList<Room> ro = rooms.getRoomList();
+//        rooms.getRoomList();
+//        
+//        Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");
+//        DateTime dt8 = new DateTime(tm.getDay(0), Timetable.TWOOCLOCK);
+//        //phys8.addAppointmentHours(dt8);
+//        //Treatment treat1 = new Treatment("name", room1, phys8.getDateTimeAppointment(1), phys8, pat1);
+//        //Booking book1 = new Booking(treat1);
+//        //addBooking(book1);
 
-        Room room1 = new Room("placeholder1");
-        Physician phys8 = new Physician("008", "mary", "26 dorset park", "5476468");
-        Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");
-        DateTime dt8 = new DateTime(tm.getDay(0), Timetable.TWOOCLOCK);
-        phys8.addAppointmentHours(dt8);
-        Treatment treat1 = new Treatment("name", room1, phys8.getDateTimeAppointment(1), phys8, pat1);
-        Booking book1 = new Booking(treat1);
-        addBooking(book1);
+//        for (Room room : ro) {
+//            Treatment tr = new Treatment(phyList.getAPhysicianByName("bob").getExpertise(0), room, dt8, phyList.getAPhysicianByName("bob"), patient.getPatientByID("201"));
+//            Booking book = new Booking(tr);
+//            String result = this.bookings.add(book);
+//            if (result.equalsIgnoreCase("Booking complete")) {
+//                System.out.println(result);
+//                break;
+//            } else if (result.equalsIgnoreCase("You already have a booking at this time")) {
+//                System.out.println(result);
+//                break;
+//            } else {
+//                System.out.println(room.getRoom() + " : " + result + " BOOKING FAILED");
+//            }
+//        }
+//        
+//        Room room1 = new Room("placeholder1");
+//        Physician phys8 = new Physician("008", "mary", "26 dorset park", "5476468");
+//        Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");
+//        DateTime dt8 = new DateTime(tm.getDay(0), Timetable.TWOOCLOCK);
+//        phys8.addAppointmentHours(dt8);
+//        Treatment treat1 = new Treatment("name", room1, phys8.getDateTimeAppointment(1), phys8, pat1);
+//        Booking book1 = new Booking(treat1);
+//        addBooking(book1);
+//        
+//        Room room1 = new Room("placeholder1");
+//        Physician phys8 = new Physician("008", "mary", "26 dorset park", "5476468");
+//        Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");
+//        DateTime dt8 = new DateTime(tm.getDay(0), Timetable.TWOOCLOCK);
+//        phys8.addAppointmentHours(dt8);
+//        Treatment treat1 = new Treatment("name", room1, phys8.getDateTimeAppointment(1), phys8, pat1);
+//        Booking book1 = new Booking(treat1);
+//        addBooking(book1);
+//        
+//        Room room1 = new Room("placeholder1");
+//        Physician phys8 = new Physician("008", "mary", "26 dorset park", "5476468");
+//        Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");
+//        DateTime dt8 = new DateTime(tm.getDay(0), Timetable.TWOOCLOCK);
+//        phys8.addAppointmentHours(dt8);
+//        Treatment treat1 = new Treatment("name", room1, phys8.getDateTimeAppointment(1), phys8, pat1);
+//        Booking book1 = new Booking(treat1);
+//        addBooking(book1);
+//        
+//        Room room1 = new Room("placeholder1");
+//        Physician phys8 = new Physician("008", "mary", "26 dorset park", "5476468");
+//        Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");
+//        DateTime dt8 = new DateTime(tm.getDay(0), Timetable.TWOOCLOCK);
+//        phys8.addAppointmentHours(dt8);
+//        Treatment treat1 = new Treatment("name", room1, phys8.getDateTimeAppointment(1), phys8, pat1);
+//        Booking book1 = new Booking(treat1);
+//        addBooking(book1);
+//        
+//        Room room1 = new Room("placeholder1");
+//        Physician phys8 = new Physician("008", "mary", "26 dorset park", "5476468");
+//        Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");
+//        DateTime dt8 = new DateTime(tm.getDay(0), Timetable.TWOOCLOCK);
+//        phys8.addAppointmentHours(dt8);
+//        Treatment treat1 = new Treatment("name", room1, phys8.getDateTimeAppointment(1), phys8, pat1);
+//        Booking book1 = new Booking(treat1);
+//        addBooking(book1);
+
     }
 }

@@ -182,6 +182,12 @@ public class PhysicianList {
         
         DateTime dtc1 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
         phys1.addConsultation(dtc1);
+        DateTime dtc2 = new DateTime(tm.getDay(5) ,Timetable.TWOOCLOCK);
+        phys1.addConsultation(dtc2);
+        DateTime dtc3 = new DateTime(tm.getDay(11) ,Timetable.TWOOCLOCK);
+        phys1.addConsultation(dtc3);
+        DateTime dtc4 = new DateTime(tm.getDay(17) ,Timetable.TWOOCLOCK);
+        phys1.addConsultation(dtc4);
         
      //////////////////////////////////////////////////////////////////////////////////////////////   
         Physician phys2 = new Physician("002", "mike", "26 dorset park", "5476468");
@@ -240,39 +246,153 @@ public class PhysicianList {
         
         
         
-        DateTime dtc2 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
-        phys2.addConsultation(dtc2);
+        DateTime dtc5 = new DateTime(tm.getDay(0) ,Timetable.FOUROCLOCK);
+        phys2.addConsultation(dtc5);
+        DateTime dtc6 = new DateTime(tm.getDay(5) ,Timetable.FOUROCLOCK);
+        phys2.addConsultation(dtc6);
+        DateTime dtc7 = new DateTime(tm.getDay(11) ,Timetable.FOUROCLOCK);
+        phys2.addConsultation(dtc7);
+        DateTime dtc8 = new DateTime(tm.getDay(17) ,Timetable.FOUROCLOCK);
+        phys2.addConsultation(dtc8);
      ////////////////////////////////////////////////////////////////////////////////////////////////
 //        
-//        Physician phys3 = new Physician("003", "john", "26 dorset park", "5476468");
-//        physicianList.add(phys3); 
-//        phys3.addExpertise("Rehabilitation");
-//        DateTime dt3 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
-//        phys3.addAppointmentHours(dt3);
-//        
-//        DateTime dtc3 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
-//        phys2.addConsultation(dtc3);
+        Physician phys3 = new Physician("003", "john", "26 dorset park", "5476468");
+        physicianList.add(phys3); 
+        phys3.addExpertise("Rehabilitation");
+        DateTime dt37 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
+        phys3.addAppointmentHours(dt37);
+        
+        DateTime dt38 = new DateTime(tm.getDay(0) ,Timetable.THREEOCLOCK);
+        phys3.addAppointmentHours(dt38);
+        
+        DateTime dt39 = new DateTime(tm.getDay(2) ,Timetable.FOUROCLOCK);
+        phys3.addAppointmentHours(dt39);
+        
+        DateTime dt40 = new DateTime(tm.getDay(5) ,Timetable.FOUROCLOCK);
+        phys3.addAppointmentHours(dt40);
+        
+        DateTime dt41 = new DateTime(tm.getDay(5) ,Timetable.SIXOCLOCK);
+        phys3.addAppointmentHours(dt41);
+        
+        DateTime dt42 = new DateTime(tm.getDay(7) ,Timetable.SIXOCLOCK);
+        phys3.addAppointmentHours(dt42);
+        
+        DateTime dt43 = new DateTime(tm.getDay(7) ,Timetable.SEVENOCLOCK);
+        phys3.addAppointmentHours(dt43);
+        
+        DateTime dt44 = new DateTime(tm.getDay(10) ,Timetable.ONEOCLOCK);
+        phys3.addAppointmentHours(dt44);
+        
+        DateTime dt45 = new DateTime(tm.getDay(10) ,Timetable.FIVEOCLOCK);
+        phys3.addAppointmentHours(dt45);
+        
+        DateTime dt46 = new DateTime(tm.getDay(13) ,Timetable.SIXOCLOCK);
+        phys3.addAppointmentHours(dt46);
+    
+        
+        DateTime dtc9 = new DateTime(tm.getDay(0) ,Timetable.SEVENOCLOCK);
+        phys3.addConsultation(dtc9);
+        DateTime dtc10 = new DateTime(tm.getDay(5) ,Timetable.SEVENOCLOCK);
+        phys3.addConsultation(dtc10);
+        DateTime dtc11 = new DateTime(tm.getDay(11) ,Timetable.SEVENOCLOCK);
+        phys3.addConsultation(dtc11);
+        DateTime dtc12 = new DateTime(tm.getDay(17) ,Timetable.SEVENOCLOCK);
+        phys3.addConsultation(dtc12);
 //        
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-//        Physician phys4 = new Physician("004", "drew", "26 dorset park", "5476468");
-//        physicianList.add(phys4); 
-//        phys4.addExpertise("accupunture");
-//        DateTime dt4 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
-//        phys4.addAppointmentHours(dt4);
-//        
-//        DateTime dtc4 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
-//        phys2.addConsultation(dtc4);
+        Physician phys4 = new Physician("004", "drew", "26 dorset park", "5476468");
+        physicianList.add(phys4); 
+        phys4.addExpertise("accupunture");
+        DateTime dt47 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
+        phys4.addAppointmentHours(dt47);
+        
+        DateTime dt48 = new DateTime(tm.getDay(5) ,Timetable.ONEOCLOCK);
+        phys4.addAppointmentHours(dt48);
+        
+        DateTime dt49 = new DateTime(tm.getDay(5) ,Timetable.TWOOCLOCK);
+        phys4.addAppointmentHours(dt49);
+        
+        DateTime dt50 = new DateTime(tm.getDay(10) ,Timetable.SIXOCLOCK);
+        phys4.addAppointmentHours(dt50);
+        
+        DateTime dt51 = new DateTime(tm.getDay(10) ,Timetable.SEVENOCLOCK);
+        phys4.addAppointmentHours(dt51);
+        
+        DateTime dt52 = new DateTime(tm.getDay(13) ,Timetable.TWOOCLOCK);
+        phys4.addAppointmentHours(dt52);
+        
+        DateTime dt53 = new DateTime(tm.getDay(13) ,Timetable.THREEOCLOCK);
+        phys4.addAppointmentHours(dt53);
+        
+        DateTime dt54 = new DateTime(tm.getDay(19) ,Timetable.SEVENOCLOCK);
+        phys4.addAppointmentHours(dt54);
+        
+        DateTime dt55 = new DateTime(tm.getDay(20) ,Timetable.TWOOCLOCK);
+        phys4.addAppointmentHours(dt55);
+        
+        DateTime dt56 = new DateTime(tm.getDay(21) ,Timetable.FOUROCLOCK);
+        phys4.addAppointmentHours(dt56);
+        
+
+        
+        
+        DateTime dtc13 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
+        phys4.addConsultation(dtc13);
+        DateTime dtc14 = new DateTime(tm.getDay(5) ,Timetable.TWOOCLOCK);
+        phys4.addConsultation(dtc14);
+        DateTime dtc15 = new DateTime(tm.getDay(11) ,Timetable.TWOOCLOCK);
+        phys4.addConsultation(dtc15);
+        DateTime dtc16 = new DateTime(tm.getDay(17) ,Timetable.TWOOCLOCK);
+        phys4.addConsultation(dtc16);
+        
+        
 //        
 ////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-//        Physician phys5 = new Physician("005", "stella", "26 dorset park", "5476468");
-//        physicianList.add(phys5); 
-//        phys5.addExpertise("Physiotherapy");
-//        DateTime dt5 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
-//        phys5.addAppointmentHours(dt5);
-//        
-//        DateTime dtc5 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
-//        phys2.addConsultation(dtc5);
+        Physician phys5 = new Physician("005", "stella", "26 dorset park", "5476468");
+        physicianList.add(phys5); 
+        phys5.addExpertise("Physiotherapy");
+        DateTime dt57 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
+        phys5.addAppointmentHours(dt57);
+        DateTime dt58 = new DateTime(tm.getDay(2) ,Timetable.TWOOCLOCK);
+        phys5.addAppointmentHours(dt58);
+        DateTime dt59 = new DateTime(tm.getDay(2) ,Timetable.FOUROCLOCK);
+        phys5.addAppointmentHours(dt59);
+        DateTime dt60 = new DateTime(tm.getDay(4) ,Timetable.TWOOCLOCK);
+        phys5.addAppointmentHours(dt60);
+        DateTime dt61 = new DateTime(tm.getDay(4) ,Timetable.FIVEOCLOCK);
+        phys5.addAppointmentHours(dt61);
+        DateTime dt62 = new DateTime(tm.getDay(4) ,Timetable.ONEOCLOCK);
+        phys5.addAppointmentHours(dt62);
+        DateTime dt63 = new DateTime(tm.getDay(8) ,Timetable.THREEOCLOCK);
+        phys5.addAppointmentHours(dt63);
+        DateTime dt64 = new DateTime(tm.getDay(8) ,Timetable.SIXOCLOCK);
+        phys5.addAppointmentHours(dt64);
+        DateTime dt65 = new DateTime(tm.getDay(9) ,Timetable.SEVENOCLOCK);
+        phys5.addAppointmentHours(dt65);
+        DateTime dt66 = new DateTime(tm.getDay(9) ,Timetable.ONEOCLOCK);
+        phys5.addAppointmentHours(dt66);
+        DateTime dt67 = new DateTime(tm.getDay(13) ,Timetable.ONEOCLOCK);
+        phys5.addAppointmentHours(dt67);
+        DateTime dt68 = new DateTime(tm.getDay(13) ,Timetable.THREEOCLOCK);
+        phys5.addAppointmentHours(dt68);
+        DateTime dt69 = new DateTime(tm.getDay(15) ,Timetable.THREEOCLOCK);
+        phys5.addAppointmentHours(dt69);
+        DateTime dt70 = new DateTime(tm.getDay(15) ,Timetable.FOUROCLOCK);
+        phys5.addAppointmentHours(dt70);
+        DateTime dt71 = new DateTime(tm.getDay(19) ,Timetable.TWOOCLOCK);
+        phys5.addAppointmentHours(dt71);
+
         
+        
+        
+        DateTime dtc17 = new DateTime(tm.getDay(0) ,Timetable.SIXOCLOCK);
+        phys2.addConsultation(dtc17);
+        DateTime dtc18 = new DateTime(tm.getDay(5) ,Timetable.SIXOCLOCK);
+        phys2.addConsultation(dtc18);
+        DateTime dtc19 = new DateTime(tm.getDay(11) ,Timetable.SIXOCLOCK);
+        phys2.addConsultation(dtc19);
+        DateTime dtc20 = new DateTime(tm.getDay(17) ,Timetable.SIXOCLOCK);
+        phys2.addConsultation(dtc20);
         
         
         

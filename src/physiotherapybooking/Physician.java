@@ -77,6 +77,14 @@ public class Physician extends Personnel{
     }
     
     /**
+     * returns physicians expertise arraylist
+     * @return ArrayList
+     */
+    public String getExpertise(int exp){
+        return expertise.get(exp);
+    }
+    
+    /**
      * adds a new appointment time to a physician
      * @param time 
      */

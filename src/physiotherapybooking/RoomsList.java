@@ -56,6 +56,8 @@ public class RoomsList {
         return rooms.size();
     }
     
+    
+    
     /**
      * loads Room data in list
      */

@@ -30,8 +30,9 @@ public class BookingController {
 
     public BookingController() {
         //timetable.initTimetable();
-        bookingList.initBookingsData(timetable);
+        
         listOfPhysician.physicianListLoad(timetable);
+        bookingList.initBookingsData(timetable, listOfPhysician, listOfRooms, listOfPatients);
         int option;
 
         System.out.println("Welcome to The Physiotherapy & Sports Injury Centre (PSIC) Booking system");

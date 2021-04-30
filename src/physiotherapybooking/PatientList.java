@@ -96,34 +96,33 @@ public class PatientList {
      * pre=loads patient data when a patient list is created
      */
     private void loadData(){
-        Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");
+        Patient pat1 = new Patient("201", "tp1", "TestData: Address1", "0105467572030");
         patientList.add(pat1);
         
-        Patient pat2 = new Patient("202", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+        Patient pat2 = new Patient("202", "tp2", "TestData: Address1", "0106576572030");
         patientList.add(pat2);
         
-        Patient pat3 = new Patient("203", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+        Patient pat3 = new Patient("203", "", "TestData: Address1", "089765856102030");
         patientList.add(pat3);
         
-        Patient pat4 = new Patient("204", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+        Patient pat4 = new Patient("204", "Arbaaz Zakir", "TestData: Address1", "01508002030");
         patientList.add(pat4);
         
-        Patient pat5 = new Patient("205", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+        Patient pat5 = new Patient("205", "Arbaaz Zakir", "TestData: Address1", "0106865865682030");
         patientList.add(pat5);
         
-        Patient pat6 = new Patient("206", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
-        patientList.add(pat6);
+        Patient pat6 = new Patient("206", "Arbaaz Zakir", "TestData: Address1", "01068686586586");
         
-        Patient pat7 = new Patient("207", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+        Patient pat7 = new Patient("207", "Arbaaz Zakir", "TestData: Address", "01785686802030");
         patientList.add(pat7);
         
-        Patient pat8 = new Patient("208", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+        Patient pat8 = new Patient("208", "Arbaaz Zakir", "TestData: Address", "010435464572030");
         patientList.add(pat8);
         
-        Patient pat9 = new Patient("209", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+        Patient pat9 = new Patient("209", "Arbaaz Zakir", "TestData: Address", "01453454302030");
         patientList.add(pat9);
         
-        Patient pat10 = new Patient("210", "Arbaaz Zakir", "46 Somerset Avenue", "0102030");
+        Patient pat10 = new Patient("210", "Arbaaz Zakir", "TestData: Address", "010204450344");
         patientList.add(pat10);
     }
 
