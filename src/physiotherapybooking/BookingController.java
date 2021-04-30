@@ -65,7 +65,7 @@ public class BookingController {
                     option = -1;
                     break;
                 case 5:
-                    System.out.println(bookingList.printReport2());
+                    System.out.println(bookingList.printReport2(listOfPatients));
                     option = -1;
                     break;
             }
