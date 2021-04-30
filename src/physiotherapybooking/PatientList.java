@@ -8,18 +8,26 @@ package physiotherapybooking;
 import java.util.ArrayList;
 
 /**
- *
+ * Collection of Patients as a array list
  * @author Arbaaz
  */
 public class PatientList {
     private ArrayList<Patient> patientList;
     
+    /**
+     * create a new a list of patients with pre loaded data
+     */
     public PatientList(){
         patientList = new ArrayList(); 
         
         loadData();
     }
     
+    /**
+     * returns a given Patient by the provided id
+     * @param patientID
+     * @return Patient
+     */
     public Patient getPatientByID(String patientID){
         String s = "";
         for(Patient user : patientList){
@@ -30,16 +38,27 @@ public class PatientList {
         return null;
     }
     
+    /**
+     * returns a patient and id number as a string
+     * @param patientName
+     * @return String
+     */
     public String getPatientByName(String patientName){
         String s = "";
         for(Patient patient : patientList){
             if (patient.getFullName().equals(patientName)){
                 s += patient.getUserID()+ "  " + patient.getFullName() + "\n";
+                return s;
             }
         }
         return s;
     }
     
+    /**
+     * checks of a patient exists
+     * @param patientID
+     * @return boolean
+     */
     public boolean patientExists(String patientID){
         for(Patient patient : patientList){
             if(patient.getUserID().equals(patientID)){
@@ -49,14 +68,33 @@ public class PatientList {
         return false;
     }
     
+    /**
+     * returns patient ArrayList
+     * @return ArrayList
+     */
     public ArrayList getPatientList(){
         return patientList;
     }
     
+    /**
+     * adds a patient to the list
+     * @param patient 
+     */
     public void addPatient(Patient patient){
         patientList.add(patient);
     }
     
+    /**
+     * return size of patient list
+     * @return int
+     */
+    public int getSize() {
+        return patientList.size();
+    }
+    
+    /**
+     * pre=loads patient data when a patient list is created
+     */
     private void loadData(){
         Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");
         patientList.add(pat1);
@@ -89,7 +127,5 @@ public class PatientList {
         patientList.add(pat10);
     }
 
-    public int getSize() {
-        return patientList.size();
-    }
+    
 }

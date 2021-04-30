@@ -10,18 +10,26 @@ import java.time.Month;
 import java.util.ArrayList;
 
 /**
- *
+ * Physician List class stores physician
  * @author Arbaaz
  */
 public class PhysicianList {
     private ArrayList<Physician> physicianList;
     
+    /**
+     * creates a new physician list with pre loaded data
+     */
     public PhysicianList(){
         physicianList = new ArrayList(); 
         loadData();
         
     }
     
+    /**
+     * returns a list of physicians who share a specified expertise
+     * @param physicianExpertise
+     * @return search
+     */
     public ArrayList<Physician> getPhysiciansByExpertise(String physicianExpertise){
         ArrayList<Physician> search = new ArrayList(); 
         String s = "";
@@ -37,6 +45,11 @@ public class PhysicianList {
         return search;
     }
     
+    /**
+     * get all physician with the same name
+     * @param name
+     * @return 
+     */
     public String getPhysiciansByName(String name){
         String search = "";
         for(Physician phys : physicianList){
@@ -48,6 +61,11 @@ public class PhysicianList {
         return search;
     }
     
+    /**
+     * returns a physician via a specified name 
+     * @param name
+     * @return Physician
+     */
     public Physician getAPhysicianByName(String name){
         for(Physician phys : physicianList){
             if(phys.getFullName().equalsIgnoreCase(name)){
@@ -57,14 +75,27 @@ public class PhysicianList {
         return null;
     }
     
+    /**
+     * returns the list of physicians
+     * @return ArrayList physicianList
+     */
     public ArrayList getPhysicianList(){
         return physicianList;
     }
     
+    /**
+     * adds a new physician to the list
+     * @param physician 
+     */
     public void addPhysicianToList(Physician physician){
         physicianList.add(physician);
     }
     
+    /**
+     * checks if a physician with a given name exists
+     * @param name
+     * @return boolean
+     */
     public boolean physicianExists(String name){
         for(Physician phys : physicianList){
             if(phys.getFullName().equals(name)){
@@ -74,6 +105,9 @@ public class PhysicianList {
         return false;
     }
     
+    /**
+     * pre-loads data when a physician list is created
+     */
     private void loadData(){
         Timetable tm = new Timetable();
         Physician phys1 = new Physician("001", "bob", "26 dorset park", "5476468");

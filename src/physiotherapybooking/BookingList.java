@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
+ * collection of bookings as a array list
  * @author Arbaaz
  */
 public class BookingList {
@@ -17,13 +17,21 @@ public class BookingList {
     private ArrayList<Booking> bookings;
     
 
-    //private ArrayList <Booking> report2;
+    /**
+     * create a new booking list with pre loaded data
+     */
     public BookingList() {
         bookings = new ArrayList();
         //report2 = new ArrayList();
         loadData();
     }
-
+    
+    /**
+     * adds a booking if there is a room at the time requested and if the patient does not already
+     * have another booking at the same time
+     * @param booking
+     * @return String if booking was successful or not
+     */
     public String addBooking(Booking booking) {
         String s = "default";
             for (Booking books : bookings) {
@@ -54,10 +62,15 @@ public class BookingList {
 
     }
     
-    public String updateBookingAttend(Booking book){
+    /**
+     * changes a booking status to attended of not cancelled
+     * @param booking
+     * @return String if Booking was successfully attended
+     */
+    public String updateBookingAttend(Booking booking){
         String s = "";
         for(Booking existing : bookings){
-            if(existing.equals(book)){
+            if(existing.equals(booking)){
                 if(existing.getStatus().equals(Booking.Status.CANCELLED)){
                     return "Booking cancelled cannot be attended";
                 }
@@ -70,6 +83,11 @@ public class BookingList {
         return "Something went wrong";
     }
     
+    /**
+     * changes a booking status to cancelled
+     * @param book
+     * @return String if successful
+     */
     public String updateBookingCancel(Booking book){
         String s = "";
         for(Booking existing : bookings){
@@ -82,7 +100,12 @@ public class BookingList {
         }
         return "Something went wrong";
     }
-
+    
+    /**
+     * gets all of a patients bookings
+     * @param userid
+     * @return 
+     */
     public HashMap getPatientBookings(String userid){
         HashMap<Integer, Booking> patientBookings = new HashMap<Integer, Booking>();
         for(Booking books : bookings){
@@ -93,31 +116,45 @@ public class BookingList {
         return patientBookings;
     }
     
+    /**
+     * returns report1 of the bookings
+     * @return String
+     */
     public String printReport1() {
         String report = "";
         for (Booking book : bookings) {
-            report += border2() + "\n"
+            report += border() + "\n"
                     + book.getTreatment().toString() + "\n"
-                    + border2();
+                    + border();
         }
         return report;
     }
-
+    
+    /**
+     * returns report 2 of the bookings
+     * @return String
+     */
     public String printReport2() {
         String report = "";
         for (Booking book : bookings) {
-            report += border2() + "\n"
+            report += border() + "\n"
                     + book.toString() + "\n"
-                    + border2();
+                    + border();
         }
         return report;
     }
-
-    private String border2() {
+    
+    /**
+     * returns a border
+     * @return String
+     */
+    private String border() {
         return("\n===================================\n");
     }
 
-
+    /**
+     * loads data of bookings
+     */
     private void loadData() {
         //String name, Room room, String appointmentTime, Physician physician, Patient patient
         Timetable tm = new Timetable();

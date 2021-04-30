@@ -7,7 +7,7 @@ package physiotherapybooking;
  */
 
 /**
- *
+ * parent class for users of the system stores personell details
  * @author Arbaaz
  */
 public class Personnel {
@@ -17,7 +17,7 @@ public class Personnel {
     private String telephone;
     
     /**
-     * 
+     * creates a new Personnel
      * @param userID
      * @param fullName
      * @param address
@@ -79,6 +79,10 @@ public class Personnel {
         this.telephone = telephone;
     }
     
+    /**
+     * toString of Personnel
+     * @return String
+     */
     public String toString(){
         return userID + " " + fullName + " " + address + " " + telephone; 
     }

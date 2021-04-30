@@ -6,11 +6,18 @@
 package physiotherapybooking;
 
 /**
- *
+ * Patient class extend Personnel
  * @author Arbaaz
  */
 public class Patient extends Personnel{
     
+    /**
+     * create a new patient
+     * @param userID
+     * @param fullName
+     * @param address
+     * @param telephone 
+     */
     public Patient(String userID, String fullName, String address, String telephone){
         super(userID, fullName, address, telephone);
     }

@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package physiotherapybooking;
-import java.time.LocalDateTime;
+
 /**
- *
+ * Treatment a user creates for a booking
  * @author Arbaaz
  */
 public class Treatment {
@@ -16,6 +16,14 @@ public class Treatment {
     private Physician physician;
     private Patient patient;
     
+    /**
+     * creates a new treatment
+     * @param name
+     * @param room
+     * @param appointmentTime
+     * @param physician
+     * @param patient 
+     */
     public Treatment(String name, Room room, DateTime appointmentTime, Physician physician, Patient patient){
         this.treatmentName = name;
         this.room = room;
@@ -80,6 +88,10 @@ public class Treatment {
         this.physician = physician;
     }
 
+    /**
+     * toString of a Treatment
+     * @return  String
+     */
     public String toString(){
         String s = "";
         s+= "Physician: " + this.getPhysician().getFullName() + "\n" +

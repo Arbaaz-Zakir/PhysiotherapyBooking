@@ -8,30 +8,19 @@ package physiotherapybooking;
 import java.util.ArrayList;
 
 /**
- *
+ * Room is a string
  * @author Arbaaz
  */
 public class Room {
     private String room;
-    //private boolean availability;
     
+    /**
+     * creates a new room
+     * @param room 
+     */
     public Room(String room){
         this.room = room;
     }
-
-    /**
-     * @return the availability
-     */
-//    public boolean isAvailable() {
-//        return availability;
-//    }
-
-    /**
-     * @param isAvailable the availability to set
-     */
-//    public void setIsAvailable(boolean isAvailable) {
-//        this.availability = isAvailable;
-//    }
 
     /**
      * @return the room

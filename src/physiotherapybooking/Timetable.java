@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
+ * Timetable used 
  * @author Arbaaz
  */
 public class Timetable {
@@ -24,21 +24,37 @@ public class Timetable {
     
     private ArrayList<String> timetable;
 
+    /**
+     * creates a new timetable with loaded data of a month
+     */
     public Timetable() {
         timetable = new ArrayList();
         timetableData();
 
     }
 
+    /**
+     * adds new day to time table
+     * @param day 
+     */
     public void addDay(String day) {
         this.timetable.add(day);
     }
 
+    /**
+     * returns a day based on index
+     * @param day
+     * @return 
+     */
     public String getDay(int day) {
         return timetable.get(0);
 
     }
 
+    /**
+     * toString of Timetable
+     * @return 
+     */
     public String toString() {
         String s = "Days: \n";
         for (String days : timetable) {
@@ -48,7 +64,10 @@ public class Timetable {
         }
         return s;
     }
-
+    
+    /**
+     * Timetable data of the month of april to pre load
+     */
     private void timetableData() {
         String day1 = "01/04/2021";
         addDay(day1);
