@@ -51,6 +51,7 @@ public class BookingController {
                     break;
 
                 case 3:
+                    visitor();
                     break;
 
                 case 4:
@@ -146,24 +147,22 @@ public class BookingController {
                                 } while (usersInput.isEmpty());
                                 int selectedDate = Integer.parseInt(usersInput);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                String selected = (phys.getTime(selectedDate));
+                                DateTime selected = (phys.getDateTimeAppointment(selectedDate));
                                 ArrayList<Room> ro = new ArrayList();
                                 ro = listOfRooms.getRoomList();
                                 String result;
-                                for(Room room : ro){
+                                for (Room room : ro) {
                                     Treatment tr = new Treatment(treatment, room, selected, phys, sysUser);
                                     Booking book = new Booking(tr);
                                     result = bookingList.addBooking(book);
-                                    if(result.equalsIgnoreCase("Booking complete")){
+                                    if (result.equalsIgnoreCase("Booking complete")) {
                                         System.out.println(result);
                                         break;
-                                    }
-                                    else if(result.equalsIgnoreCase("You already have a booking at this time")){
+                                    } else if (result.equalsIgnoreCase("You already have a booking at this time")) {
                                         System.out.println(result);
                                         break;
-                                    }
-                                    else{
-                                        System.out.println(room.getRoom() + " : " +result + " BOOKING FAILED");
+                                    } else {
+                                        System.out.println(room.getRoom() + " : " + result + " BOOKING FAILED");
                                     }
                                 }
 
@@ -185,36 +184,77 @@ public class BookingController {
     }
 
     private void visitor() {
-        String enteredName;
-        String usersInput;
+        int logOption;
         do {
-            System.out.println("Enter a physicians name: ");
-            enteredName = input.nextLine();
-        } while (enteredName.isEmpty());
+            String enteredName;
+            String usersInput;
+            System.out.println("Enter: ( 0 ) Quit Visitor View\nEnter: ( 1 ) Search for Physician by name\nEnter: ( 2 )");
+            
+            logOption = sc1.nextInt();
 
-        if (listOfPhysician.physicianExists(enteredName)) {
-            System.out.println(listOfPhysician.getAPhysicianByName(enteredName));
-            do {
-                System.out.println("Would you like to make a visitors appointment? (Y/N)");
-                usersInput = input.nextLine();
-            } while (usersInput.isEmpty());
-
-            if (usersInput.equalsIgnoreCase("y")) {
-                //usersInput = "";
-                Physician phys = listOfPhysician.getAPhysicianByName(enteredName);
-                System.out.println();
-
-                usersInput = "";
-
+            if (logOption == 1) {
                 do {
-                    System.out.println("selct a date");
-                    System.out.println(phys.getAppointmentHours());
-                    usersInput = input.nextLine();
-                } while (usersInput.isEmpty());
-                int selectedDate = Integer.parseInt(usersInput);
+                    System.out.println("Enter a physicians name: ");
+                    enteredName = input.nextLine();
+                } while (enteredName.isEmpty());
 
+                if (listOfPhysician.physicianExists(enteredName)) {
+                    System.out.println(listOfPhysician.getAPhysicianByName(enteredName));
+                    do {
+                        System.out.println("Would you like to make a visitors appointment? (Y/N)");
+                        usersInput = input.nextLine();
+                    } while (usersInput.isEmpty());
+
+                    if (usersInput.equalsIgnoreCase("y")) {
+                        //usersInput = "";
+                        Physician phys = listOfPhysician.getAPhysicianByName(enteredName);
+
+                        usersInput = "";
+
+                        do {
+                            System.out.println("selct a date");
+                            System.out.println(phys.getConsultation());
+                            usersInput = input.nextLine();
+                        } while (usersInput.isEmpty());
+                        int selectedDate = Integer.parseInt(usersInput);
+                        DateTime selected = (phys.getDateTimeConsultation(selectedDate));
+                        String visitorName;
+                        do{
+                            System.out.println("Before booking an appointment please provide your name");
+                            visitorName = input.nextLine();
+                        }while(visitorName.isEmpty());
+                        
+                        String visitorTele;
+                        do{
+                            System.out.println("Provide contact number for potential follow up consultations");
+                            visitorTele = input.nextLine();
+                        }while(visitorName.isEmpty());
+                        
+                        
+                        Patient visitor = new Patient("ID: visitor", visitorName, "visitor N/A", "visitor tele: " + visitorTele);
+                        
+                        ArrayList<Room> ro = new ArrayList();
+                        ro = listOfRooms.getRoomList();
+                        String result;
+                        for (Room room : ro) {
+                            Treatment tr = new Treatment("Visitor Consultation", room, selected, phys, visitor);
+                            Booking book = new Booking(tr);
+                            result = bookingList.addBooking(book);
+                            if (result.equalsIgnoreCase("Booking complete")) {
+                                System.out.println(result);
+                                break;
+                            } else if (result.equalsIgnoreCase("You already have a booking at this time")) {
+                                System.out.println(result);
+                                break;
+                            } else {
+                                System.out.println(room.getRoom() + " : " + result + " BOOKING FAILED");
+                            }
+                        }
+                    }
+                }
+                logOption = -1;
             }
-        }
+        } while (logOption != 0);
     }
 
 }

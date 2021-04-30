@@ -87,11 +87,13 @@ public class BookingList {
 
     private void loadData() {
         //String name, Room room, String appointmentTime, Physician physician, Patient patient
+        Timetable tm = new Timetable();
         Room room1 = new Room("placeholder1");
         Physician phys8 = new Physician("008", "mary", "26 dorset park", "5476468");
         Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");
-        phys8.addAppointmentHours(Timetable.TWOOCLOCK);
-        Treatment treat1 = new Treatment("name", room1, phys8.getTime(1), phys8, pat1);
+        DateTime dt8 = new DateTime(tm.getDay(0) ,Timetable.TWOOCLOCK);
+        phys8.addAppointmentHours(dt8);
+        Treatment treat1 = new Treatment("name", room1, phys8.getDateTimeAppointment(1), phys8, pat1);
         Booking book1 = new Booking(treat1);
         addBooking(book1);
     }

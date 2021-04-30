@@ -15,8 +15,9 @@ import java.util.HashMap;
  */
 public class Physician extends Personnel{
     //ArrayList<LocalDateTime> appointmentHours;
-    private HashMap<Integer, String> appointmentHours;
-    private String[] consultation;
+    private HashMap<Integer, DateTime> appointmentHours;
+    private HashMap<Integer, DateTime> consultation;
+    //private String[] consultation;
     private ArrayList<String> expertise;
     
     //private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -25,8 +26,9 @@ public class Physician extends Personnel{
     
     public Physician(String userID, String fullName, String address, String telephone){
         super(userID, fullName, address, telephone);
-        appointmentHours = new HashMap<Integer, String>();
+        appointmentHours = new HashMap<Integer, DateTime>();
         expertise = new ArrayList();
+        consultation = new HashMap<Integer, DateTime>();
     }
     
     public void addExpertise(String expertise){
@@ -54,13 +56,13 @@ public class Physician extends Personnel{
         return expertise;
     }
     
-    public void addAppointmentHours(String time){
+    public void addAppointmentHours(DateTime time){
         this.appointmentHours.put((appointmentHours.size()+1),time);
     }
     
     public String getAppointmentHours(){
         String s = "Appointment Hours: \n";
-        for(String hours : appointmentHours.values()){
+        for(DateTime hours : appointmentHours.values()){
             for(int number : appointmentHours.keySet()){
                 s += number + " : "+ hours + "\n";
             }
@@ -68,13 +70,36 @@ public class Physician extends Personnel{
         return s;
     }
     
-    public String getTime(int time){
+    public DateTime getDateTimeAppointment(int time){
         if(this.appointmentHours.containsKey(time)){
             return appointmentHours.get(time);
         }
         else{
             return null;
         }
+    }
+    
+    public DateTime getDateTimeConsultation(int time){
+        if(this.consultation.containsKey(time)){
+            return consultation.get(time);
+        }
+        else{
+            return null;
+        }
+    }
+    
+    public void addConsultation(DateTime time){
+        this.consultation.put((consultation.size()+1),time);
+    }
+    
+    public String getConsultation(){
+        String s = "Consultation Hours: \n";
+        for(DateTime hours : consultation.values()){
+            for(int number : consultation.keySet()){
+                s += number + " : "+ hours + "\n";
+            }
+        }
+        return s;
     }
     
     public String toString(){
