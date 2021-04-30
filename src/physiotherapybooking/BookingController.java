@@ -186,7 +186,7 @@ public class BookingController {
                                 books = String.format(books, i);
                             }
                             System.out.println(books);
-                            System.out.println("Enter: ( 0 ) Go Back\nEnter: ( 1 ) Attend a Booking\nEnter: ( 2 ) Cancel a Booking");
+                            System.out.println("Enter: ( 0 ) Go Back\nEnter: ( 1 ) Attend a Booking\nEnter: ( 2 ) Cancel a Booking\nEnter: ( 3 ) change a Booking");
 
                             logOption = input.nextInt();
                             if (logOption == 1) {
@@ -204,25 +204,51 @@ public class BookingController {
                                     System.out.println(bookingList.updateBookingAttend(myBookings.get(selectedBooking)));
                                 }
                                 logOption = -1;
-                            }
-                            else if(logOption == 2){
-                               String s = "";
-                               if(myBookings.size() == 0){
-                                   System.out.println("No Bookings Found");
-                               }
-                               else{
-                                   if (myBookings.size() >= 2) {
+                            } else if (logOption == 2) {
+                                String s = "";
+                                if (myBookings.size() == 0) {
+                                    System.out.println("No Bookings Found");
+                                } else {
+                                    if (myBookings.size() >= 2) {
 
                                         s += myBookings.size() + 1;
                                     }
                                     System.out.println("Enter a booking to cancel 1 - " + s);
                                     int selectedBooking;
                                     selectedBooking = input.nextInt();
-                                    System.out.println(bookingList.updateBookingCancel(myBookings.get(selectedBooking)));                                   
-                               }
-                                
-                                
+                                    System.out.println(bookingList.updateBookingCancel(myBookings.get(selectedBooking)));
+                                }
+
                                 logOption = -1;
+                            } else if (logOption == 3) {
+                                String s = "";
+                                if (myBookings.size() == 0) {
+                                    System.out.println("No Bookings Found");
+                                } else {
+                                    if (myBookings.size() >= 2) {
+
+                                        s += myBookings.size() + 1;
+                                    }
+                                    System.out.println("Enter a booking to change 1 - " + s);
+                                    int selectedBooking;
+                                    selectedBooking = input.nextInt();
+                                    //System.out.println("Enter: ( 0 ) Go Back\nEnter: ( 1 ) Attend a Booking\nEnter: ( 2 ) ");
+                                    usersInput = "";
+                                    System.out.println("selcet new appointment time");
+                                    do {
+                                        System.out.println("selct a new date");
+                                        System.out.println(myBookings.get(selectedBooking).getTreatment().getPhysician().getAppointmentHours());
+                                        usersInput = input.nextLine();
+                                    } while (usersInput.isEmpty());
+                                    int newSelectedDate = Integer.parseInt(usersInput);
+                                    
+                                    DateTime newDateTime = myBookings.get(selectedBooking).getTreatment().getPhysician().getDateTimeAppointment(newSelectedDate);
+                                    Treatment treatment = myBookings.get(selectedBooking).getTreatment();
+                                    treatment.setAppointmentTime(newDateTime);
+                                    System.out.println(bookingList.updateBookingChanged(myBookings.get(selectedBooking), treatment));
+                                    
+                                    
+                                }
                             }
 
                         } while (logOption != 0);

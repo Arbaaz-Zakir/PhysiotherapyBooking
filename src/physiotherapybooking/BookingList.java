@@ -62,6 +62,7 @@ public class BookingList {
 
     }
     
+
     /**
      * changes a booking status to attended of not cancelled
      * @param booking
@@ -95,6 +96,20 @@ public class BookingList {
                 existing.setStatusCancelled();
                 if(existing.getStatus().equals(Booking.Status.CANCELLED)){
                     return "Booking Cancelled";
+                }
+            }
+        }
+        return "Something went wrong";
+    }
+    
+    public String updateBookingChanged(Booking book, Treatment treatment){
+        String s = "";
+        for(Booking existing : bookings){
+            if(existing.equals(book)){
+                existing.setTreatment(treatment);
+                existing.setStatusChanged();
+                if(existing.getStatus().equals(Booking.Status.CHANGED)){
+                    return "Booking Changed";
                 }
             }
         }
