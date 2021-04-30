@@ -18,7 +18,8 @@ public class Booking {
      enum Status{
          ATTENDED,
          BOOKED,
-         CANCELLED
+         CANCELLED,
+         CHANGED
      }
      
      private Treatment treatment;
@@ -45,6 +46,13 @@ public class Booking {
       */
      public void setStatusCancelled(){
          this.status = Booking.Status.CANCELLED;
+     }
+     
+     /**
+      * sets booking status to changed
+      */
+     public void setStatusChanged(){
+         this.status = Booking.Status.CHANGED;
      }
      
      /**
