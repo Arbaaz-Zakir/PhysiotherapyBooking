@@ -27,8 +27,12 @@ public class Booking {
          status = status.BOOKED;
      }
      
-     public void setStatus(Status status){
-         this.status = status;
+     public void setStatusAttended(){
+         this.status = Booking.Status.ATTENDED;
+     }
+     
+     public void setStatusCancelled(){
+         this.status = Booking.Status.CANCELLED;
      }
      
      public Status getStatus(){

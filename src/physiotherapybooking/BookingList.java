@@ -53,10 +53,46 @@ public class BookingList {
         return s;
 
     }
+    
+    public String updateBookingAttend(Booking book){
+        String s = "";
+        for(Booking existing : bookings){
+            if(existing.equals(book)){
+                if(existing.getStatus().equals(Booking.Status.CANCELLED)){
+                    return "Booking cancelled cannot be attended";
+                }
+                existing.setStatusAttended();
+                if(existing.getStatus().equals(Booking.Status.ATTENDED)){
+                    return "Booking Attended";
+                }
+            }
+        }
+        return "Something went wrong";
+    }
+    
+    public String updateBookingCancel(Booking book){
+        String s = "";
+        for(Booking existing : bookings){
+            if(existing.equals(book)){
+                existing.setStatusCancelled();
+                if(existing.getStatus().equals(Booking.Status.CANCELLED)){
+                    return "Booking Cancelled";
+                }
+            }
+        }
+        return "Something went wrong";
+    }
 
-//    public void addReport2(Booking booking){
-//        this.report2.add(booking);
-//    }
+    public HashMap getPatientBookings(String userid){
+        HashMap<Integer, Booking> patientBookings = new HashMap<Integer, Booking>();
+        for(Booking books : bookings){
+            if(books.getTreatment().getPatient().getUserID().equalsIgnoreCase(userid)){
+                patientBookings.put((patientBookings.size() + 1),books);
+            }
+        }
+        return patientBookings;
+    }
+    
     public String printReport1() {
         String report = "";
         for (Booking book : bookings) {
@@ -77,13 +113,10 @@ public class BookingList {
         return report;
     }
 
-    private void border() {
-        System.out.println("\n===================================\n");
+    private String border2() {
+        return("\n===================================\n");
     }
 
-    private String border2() {
-        return "===================================";
-    }
 
     private void loadData() {
         //String name, Room room, String appointmentTime, Physician physician, Patient patient

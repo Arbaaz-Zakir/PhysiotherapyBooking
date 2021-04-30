@@ -8,6 +8,7 @@ package physiotherapybooking;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -108,7 +109,7 @@ public class BookingController {
             int logOption;
 
             do {
-                System.out.println("Enter: ( 0 ) Log out\nEnter: ( 1 ) Search for Physician by name\nEnter: ( 2 )");
+                System.out.println("Enter: ( 0 ) Log out\nEnter: ( 1 ) Search for Physician by name\nEnter: ( 2 ) View your Bookings");
 
                 logOption = sc1.nextInt();
                 switch (logOption) {
@@ -171,8 +172,60 @@ public class BookingController {
                         }
 
                     case 2:
+                        logOption = -1;
+                        //System.out.println("Enter: ( 0 ) Go Back\nEnter: ( 1 ) Attend a Booking\nEnter: ( 2 ) Cancel a Booking");
                         // view my bookings -> change/cancel bookings
+                        do {
+                            //System.out.println("Enter: ( 0 ) Go Back\nEnter: ( 1 ) Attend a Booking\nEnter: ( 2 ) Cancel a Booking");
+                            HashMap<Integer, Booking> myBookings = bookingList.getPatientBookings(sysUser.getUserID());
+                            String books = "\n=============================\n"
+                                    + "YOUR BOOKINGS"
+                                    + "\n=============================\n";
+                            for (int i = 1; i <= myBookings.size(); i++) {
+                                books += "Booking %s:\n" + myBookings.get(i).toString() + "\n";
+                                books = String.format(books, i);
+                            }
+                            System.out.println(books);
+                            System.out.println("Enter: ( 0 ) Go Back\nEnter: ( 1 ) Attend a Booking\nEnter: ( 2 ) Cancel a Booking");
 
+                            logOption = input.nextInt();
+                            if (logOption == 1) {
+                                String s = "";
+                                if (myBookings.size() == 0) {
+                                    System.out.println("No Bookings found");
+                                } else {
+                                    if (myBookings.size() >= 2) {
+
+                                        s += myBookings.size() + 1;
+                                    }
+                                    System.out.println("Enter a booking to attend 1 - " + s);
+                                    int selectedBooking;
+                                    selectedBooking = input.nextInt();
+                                    System.out.println(bookingList.updateBookingAttend(myBookings.get(selectedBooking)));
+                                }
+                                logOption = -1;
+                            }
+                            else if(logOption == 2){
+                               String s = "";
+                               if(myBookings.size() == 0){
+                                   System.out.println("No Bookings Found");
+                               }
+                               else{
+                                   if (myBookings.size() >= 2) {
+
+                                        s += myBookings.size() + 1;
+                                    }
+                                    System.out.println("Enter a booking to cancel 1 - " + s);
+                                    int selectedBooking;
+                                    selectedBooking = input.nextInt();
+                                    System.out.println(bookingList.updateBookingCancel(myBookings.get(selectedBooking)));                                   
+                               }
+                                
+                                
+                                logOption = -1;
+                            }
+
+                        } while (logOption != 0);
                         break;
                 }
             } while (logOption != 0);
@@ -189,7 +242,7 @@ public class BookingController {
             String enteredName;
             String usersInput;
             System.out.println("Enter: ( 0 ) Quit Visitor View\nEnter: ( 1 ) Search for Physician by name\nEnter: ( 2 )");
-            
+
             logOption = sc1.nextInt();
 
             if (logOption == 1) {
@@ -219,20 +272,19 @@ public class BookingController {
                         int selectedDate = Integer.parseInt(usersInput);
                         DateTime selected = (phys.getDateTimeConsultation(selectedDate));
                         String visitorName;
-                        do{
+                        do {
                             System.out.println("Before booking an appointment please provide your name");
                             visitorName = input.nextLine();
-                        }while(visitorName.isEmpty());
-                        
+                        } while (visitorName.isEmpty());
+
                         String visitorTele;
-                        do{
+                        do {
                             System.out.println("Provide contact number for potential follow up consultations");
                             visitorTele = input.nextLine();
-                        }while(visitorName.isEmpty());
-                        
-                        
+                        } while (visitorName.isEmpty());
+
                         Patient visitor = new Patient("ID: visitor", visitorName, "visitor N/A", "visitor tele: " + visitorTele);
-                        
+
                         ArrayList<Room> ro = new ArrayList();
                         ro = listOfRooms.getRoomList();
                         String result;
