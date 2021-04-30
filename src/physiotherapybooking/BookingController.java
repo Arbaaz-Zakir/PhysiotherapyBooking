@@ -27,6 +27,7 @@ public class BookingController {
     private RoomsList listOfRooms = new RoomsList();
     private BookingList bookingList = new BookingList();
     private final Timetable timetable = new Timetable();
+
     public BookingController() {
         //timetable.initTimetable();
         bookingList.initBookingsData(timetable);
@@ -117,7 +118,7 @@ public class BookingController {
             int logOption;
 
             do {
-                System.out.println("Enter: ( 0 ) Log out\nEnter: ( 1 ) Search for Physician by name\nEnter: ( 2 ) View your Bookings");
+                System.out.println("Enter: ( 0 ) Log out\nEnter: ( 1 ) Search for Physician by name\nEnter: ( 2 ) View your Bookings\nEnter: ( 3 ) Search for Physician by expertise");
 
                 logOption = sc1.nextInt();
                 switch (logOption) {
@@ -197,9 +198,9 @@ public class BookingController {
                             }
                             System.out.println(books);
                             System.out.println("Enter: ( 0 ) Go Back\nEnter: ( 1 ) Attend a Booking\nEnter: ( 2 ) Cancel a Booking\nEnter: ( 3 ) change a Booking");
-                            
+
                             statusOption = input.nextInt();
-                            
+
                             if (statusOption == 1) {
                                 String s = "";
                                 if (myBookings.size() == 0) {
@@ -253,18 +254,74 @@ public class BookingController {
                                         usersInput = input.nextLine();
                                     } while (usersInput.isEmpty());
                                     int newSelectedDate = Integer.parseInt(usersInput);
-                                    
+
                                     DateTime newDateTime = myBookings.get(selectedBooking).getTreatment().getPhysician().getDateTimeAppointment(newSelectedDate);
                                     Treatment treatment = myBookings.get(selectedBooking).getTreatment();
                                     treatment.setAppointmentTime(newDateTime);
                                     System.out.println(bookingList.updateBookingChanged(myBookings.get(selectedBooking), treatment));
-                                    
-                                    
+
                                 }
                             }
                             //logOption = -1;
 
                         } while (statusOption != 0);
+                        break;
+                    case 3:
+                        String desiredExpertise = "";
+                        do {
+                            System.out.println("Search expertise you seek: ");
+                            desiredExpertise = input.nextLine();
+                        } while (desiredExpertise.isEmpty());
+                        ArrayList<Physician> searchResult = listOfPhysician.getPhysiciansByExpertise(desiredExpertise);
+                        if (!searchResult.isEmpty()) {
+                            for (Physician potentialPhysician : searchResult) {
+                                System.out.println(potentialPhysician.getFullName() + "\n==============\n" + potentialPhysician.getAppointmentHours());
+                            }
+                            String choiseByExp;
+                            do {
+                                System.out.println("Would you like to make a treatment appointment? (Y/N)");
+                                choiseByExp = input.nextLine();
+                            } while (choiseByExp.isEmpty());
+                            if (choiseByExp.equalsIgnoreCase("y")) {
+                                do {
+                                    System.out.println("Enter a physicians name: ");
+                                    enteredName = input.nextLine();
+                                } while (enteredName.isEmpty());
+                                if (listOfPhysician.physicianExists(enteredName)) {
+                                    Physician phys = listOfPhysician.getAPhysicianByName(enteredName);
+                                    String selectDateforExpertise;
+                                    do {
+                                        System.out.println("selct a date");
+                                        System.out.println(phys.getAppointmentHours());
+                                        selectDateforExpertise = input.nextLine();
+                                    } while (selectDateforExpertise.isEmpty());
+                                    int selectedDate = Integer.parseInt(selectDateforExpertise);
+
+                                    DateTime selected = (phys.getDateTimeAppointment(selectedDate));
+                                    ArrayList<Room> ro = new ArrayList();
+                                    ro = listOfRooms.getRoomList();
+                                    String result;
+                                    for (Room room : ro) {
+                                        Treatment tr = new Treatment(desiredExpertise, room, selected, phys, sysUser);
+                                        Booking book = new Booking(tr);
+                                        result = bookingList.addBooking(book);
+                                        if (result.equalsIgnoreCase("Booking complete")) {
+                                            System.out.println(result);
+                                            break;
+                                        } else if (result.equalsIgnoreCase("You already have a booking at this time")) {
+                                            System.out.println(result);
+                                            break;
+                                        } else {
+                                            System.out.println(room.getRoom() + " : " + result + " BOOKING FAILED");
+                                        }
+                                    }
+                                }
+                            }
+
+                        } else {
+                            System.out.println("No physician found with desired expertise");
+                        }
+
                         break;
                 }
             } while (logOption != 0);
