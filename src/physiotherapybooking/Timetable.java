@@ -22,8 +22,8 @@ public class Timetable {
     public static final String SIXOCLOCK = "18:00 - 19:00";
     public static final String SEVENOCLOCK = "20:00 - 21:00";
     
-    private ArrayList<String> timetable;
-
+    private static ArrayList<String> timetable;
+    //private static Singelton uniqueInstance = null;
     /**
      * creates a new timetable with loaded data of a month
      */
@@ -47,7 +47,7 @@ public class Timetable {
      * @return 
      */
     public String getDay(int day) {
-        return timetable.get(0);
+        return timetable.get(day);
 
     }
 
@@ -63,6 +63,10 @@ public class Timetable {
             number++;
         }
         return s;
+    }
+    
+    public void initTimetable(){
+        timetableData();
     }
     
     /**
@@ -153,11 +157,6 @@ public class Timetable {
         String day28 = "28/04/2021";
         addDay(day28);
 
-        String day29 = "29/04/2021";
-        addDay(day29);
-
-        String day30 = "30/04/2021";
-        addDay(day30);
     }
 
 }

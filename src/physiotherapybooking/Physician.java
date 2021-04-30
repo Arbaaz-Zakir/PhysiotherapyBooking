@@ -89,13 +89,14 @@ public class Physician extends Personnel{
      * @return String
      */
     public String getAppointmentHours(){
-        String s = "Appointment Hours: \n";
-        for(DateTime hours : appointmentHours.values()){
-            for(int number : appointmentHours.keySet()){
-                s += number + " : "+ hours + "\n";
+        String s = "";
+        for(int key : appointmentHours.keySet()){
+            if(appointmentHours.get(key).isAvailable()){
+            s += key + " : " + appointmentHours.get(key) + "\n";
             }
         }
         return s;
+        
     }
     
     public DateTime getDateTimeAppointment(int time){

@@ -23,7 +23,7 @@ public class BookingList {
     public BookingList() {
         bookings = new ArrayList();
         //report2 = new ArrayList();
-        loadData();
+        //loadData();
     }
     
     /**
@@ -166,13 +166,15 @@ public class BookingList {
     private String border() {
         return("\n===================================\n");
     }
-
+    public void initBookingsData(Timetable time) {
+        loadData(time);
+    }
     /**
      * loads data of bookings
      */
-    private void loadData() {
+    private void loadData(Timetable tm) {
         //String name, Room room, String appointmentTime, Physician physician, Patient patient
-        Timetable tm = new Timetable();
+
         Room room1 = new Room("placeholder1");
         Physician phys8 = new Physician("008", "mary", "26 dorset park", "5476468");
         Patient pat1 = new Patient("201", "Arbaaz Zakir", "TestData: Address", "0102030");

@@ -26,9 +26,11 @@ public class BookingController {
     private PatientList listOfPatients = new PatientList();
     private RoomsList listOfRooms = new RoomsList();
     private BookingList bookingList = new BookingList();
-
+    private final Timetable timetable = new Timetable();
     public BookingController() {
-
+        //timetable.initTimetable();
+        bookingList.initBookingsData(timetable);
+        listOfPhysician.physicianListLoad(timetable);
         int option;
 
         System.out.println("Welcome to The Physiotherapy & Sports Injury Centre (PSIC) Booking system");
@@ -45,21 +47,27 @@ public class BookingController {
                     break;
                 case 1:
                     login();
+                    option = -1;
                     break;
 
                 case 2:
                     signUp();
+                    option = -1;
                     break;
 
                 case 3:
                     visitor();
+                    option = -1;
                     break;
 
                 case 4:
                     System.out.println(bookingList.printReport1());
+                    option = -1;
                     break;
                 case 5:
                     System.out.println(bookingList.printReport2());
+                    option = -1;
+                    break;
             }
         } while (option != 0);
     }
@@ -157,6 +165,7 @@ public class BookingController {
                                     Booking book = new Booking(tr);
                                     result = bookingList.addBooking(book);
                                     if (result.equalsIgnoreCase("Booking complete")) {
+                                        phys.getDateTimeAppointment(selectedDate).setAvailable(false);
                                         System.out.println(result);
                                         break;
                                     } else if (result.equalsIgnoreCase("You already have a booking at this time")) {
@@ -170,6 +179,7 @@ public class BookingController {
                             }
 
                         }
+                        break;
 
                     case 2:
                         logOption = -1;
@@ -250,6 +260,7 @@ public class BookingController {
                                     
                                 }
                             }
+                            //logOption = -1;
 
                         } while (logOption != 0);
                         break;
