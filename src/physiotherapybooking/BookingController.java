@@ -165,7 +165,6 @@ public class BookingController {
                                     Booking book = new Booking(tr);
                                     result = bookingList.addBooking(book);
                                     if (result.equalsIgnoreCase("Booking complete")) {
-                                        phys.getDateTimeAppointment(selectedDate).setAvailable(false);
                                         System.out.println(result);
                                         break;
                                     } else if (result.equalsIgnoreCase("You already have a booking at this time")) {
@@ -192,7 +191,7 @@ public class BookingController {
                                     + "YOUR BOOKINGS"
                                     + "\n=============================\n";
                             for (int i = 1; i <= myBookings.size(); i++) {
-                                books += "Booking %s:\n" + myBookings.get(i).toString() + "\n";
+                                books += "\nBooking %s:\n" + myBookings.get(i).toString() + "\n";
                                 books = String.format(books, i);
                             }
                             System.out.println(books);
@@ -227,6 +226,7 @@ public class BookingController {
                                     int selectedBooking;
                                     selectedBooking = input.nextInt();
                                     System.out.println(bookingList.updateBookingCancel(myBookings.get(selectedBooking)));
+
                                 }
 
                                 logOption = -1;

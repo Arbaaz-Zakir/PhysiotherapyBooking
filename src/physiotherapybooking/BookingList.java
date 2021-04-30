@@ -51,6 +51,7 @@ public class BookingList {
                 }
             }
             if(s.equalsIgnoreCase("default")){
+                booking.getTreatment().getAppointmentTime().setAvailable(false);
                 bookings.add(booking);
                 s = "Booking complete";
                 
@@ -95,6 +96,7 @@ public class BookingList {
             if(existing.equals(book)){
                 existing.setStatusCancelled();
                 if(existing.getStatus().equals(Booking.Status.CANCELLED)){
+                    existing.getTreatment().getAppointmentTime().setAvailable(true);
                     return "Booking Cancelled";
                 }
             }
